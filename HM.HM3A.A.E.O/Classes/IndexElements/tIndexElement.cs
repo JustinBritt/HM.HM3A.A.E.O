@@ -1,5 +1,7 @@
 ﻿namespace HM.HM3A.A.E.O.Classes.IndexElements
 {
+    using System;
+
     using log4net;
 
     using Hl7.Fhir.Model;
@@ -28,5 +30,12 @@
         /// Gets the value of the day.
         /// </summary>
         public FhirDateTime Value { get; }
+
+        public int CompareTo(
+            ItIndexElement other)
+        {
+            return this.Key.CompareTo(
+                other.Key);
+        }
     }
 }
