@@ -1,5 +1,7 @@
 ﻿namespace HM.HM3A.A.E.O.Classes.IndexElements
 {
+    using System;
+
     using log4net;
 
     using Hl7.Fhir.Model;
@@ -20,5 +22,13 @@
         /// Gets the machine.
         /// </summary>
         public Device Value { get; }
+
+        public int CompareTo(
+            ImIndexElement other)
+        {
+            return String.CompareOrdinal(
+                other.Value.Id,
+                this.Value.Id);
+        }
     }
 }
