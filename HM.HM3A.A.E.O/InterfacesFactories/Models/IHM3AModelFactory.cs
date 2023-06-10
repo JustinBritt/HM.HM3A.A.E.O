@@ -8,6 +8,7 @@
     public interface IHM3AModelFactory
     {
         IHM3AModel Create(
+            IComparersAbstractFactory comparersAbstractFactory,
             IConstraintElementsAbstractFactory constraintElementsAbstractFactory,
             IConstraintsAbstractFactory constraintsAbstractFactory,
             ICrossJoinElementsAbstractFactory crossJoinElementsAbstractFactory,

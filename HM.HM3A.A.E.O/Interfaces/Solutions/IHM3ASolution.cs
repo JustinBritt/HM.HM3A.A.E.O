@@ -12,6 +12,7 @@
     {
         Task<IHM3AOutputContext> Solve(
             ICalculationsAbstractFactory calculationsAbstractFactory,
+            IComparersAbstractFactory comparersAbstractFactory,
             IConstraintElementsAbstractFactory constraintElementsAbstractFactory,
             IConstraintsAbstractFactory constraintsAbstractFactory,
             IContextsAbstractFactory contextsAbstractFactory,

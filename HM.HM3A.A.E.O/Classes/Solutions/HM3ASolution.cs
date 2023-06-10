@@ -26,6 +26,7 @@
 
         public Task<IHM3AOutputContext> Solve(
             ICalculationsAbstractFactory calculationsAbstractFactory,
+            IComparersAbstractFactory comparersAbstractFactory,
             IConstraintElementsAbstractFactory constraintElementsAbstractFactory,
             IConstraintsAbstractFactory constraintsAbstractFactory,
             IContextsAbstractFactory contextsAbstractFactory,
@@ -53,6 +54,7 @@
                 using (ModelScope modelScope = dependenciesAbstractFactory.CreateModelScopeFactory().Create(HM3AConfiguration.Value))
                 {
                     IHM3AModel model = modelsAbstractFactory.CreateHM3AModelFactory().Create(
+                        comparersAbstractFactory,
                         constraintElementsAbstractFactory,
                         constraintsAbstractFactory,
                         crossJoinElementsAbstractFactory,
