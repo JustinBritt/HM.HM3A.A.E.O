@@ -157,7 +157,7 @@
                 .Select(x => parameterElementsAbstractFactory.CreateζParameterElementFactory().Create(
                     this.s.GetElementAt(x.Item1),
                     this.m.GetElementAt(x.Item2),
-                    (FhirBoolean)x.Item3))
+                    x.Item3))
                 .ToImmutableList());
 
             // ψ(t)
