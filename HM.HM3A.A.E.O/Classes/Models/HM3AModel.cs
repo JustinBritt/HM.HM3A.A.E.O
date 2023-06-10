@@ -124,7 +124,7 @@
                 this.Context.SurgicalSpecialtyNumberAssignedTimeBlocks
                 .Select(x => parameterElementsAbstractFactory.CreateBBarParameterElementFactory().Create(
                     this.j.GetElementAt(x.Key),
-                    (PositiveInt)x.Value))
+                    x.Value))
                 .ToImmutableList());
 
             // B(s)
