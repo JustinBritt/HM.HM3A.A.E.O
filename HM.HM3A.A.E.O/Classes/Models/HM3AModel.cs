@@ -132,7 +132,7 @@
                 this.Context.SurgeonNumberAssignedTimeBlocks
                 .Select(x => parameterElementsAbstractFactory.CreateBsParameterElementFactory().Create(
                     this.s.GetElementAt(x.Key),
-                    (PositiveInt)x.Value))
+                    x.Value))
                 .ToImmutableList());
 
             // C(m)
