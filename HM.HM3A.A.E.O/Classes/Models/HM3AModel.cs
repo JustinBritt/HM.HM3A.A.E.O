@@ -45,6 +45,7 @@
 
             // j
             this.j = indicesAbstractFactory.CreatejFactory().Create(
+                new HM.HM3A.A.E.O.Classes.Comparers.OrganizationComparer(),
                 this.Context.SurgicalSpecialties
                 .Select(x => x.Item1)
                 .Select(x => indexElementsAbstractFactory.CreatejIndexElementFactory().Create(x))
@@ -86,7 +87,7 @@
 
             // jr
             this.jr = crossJoinsAbstractFactory.CreatejrFactory().Create(
-                this.j.Value
+                this.j.Value.Values
                 .SelectMany(b => this.r.Value, (a, b) => crossJoinElementsAbstractFactory.CreatejrCrossJoinElementFactory().Create(a, b))
                 .ToImmutableList());
 
@@ -112,7 +113,7 @@
             this.srj = crossJoinsAbstractFactory.CreatesrjFactory().Create(
                 this.s.Value
                 .SelectMany(b => this.r.Value, (a, b) => crossJoinElementsAbstractFactory.CreatesrCrossJoinElementFactory().Create(a, b))
-                .SelectMany(b => this.j.Value, (a, b) => crossJoinElementsAbstractFactory.CreatesrjCrossJoinElementFactory().Create(a.sIndexElement, a.rIndexElement, b))
+                .SelectMany(b => this.j.Value.Values, (a, b) => crossJoinElementsAbstractFactory.CreatesrjCrossJoinElementFactory().Create(a.sIndexElement, a.rIndexElement, b))
                 .ToImmutableList());
 
             // Parameters
@@ -192,7 +193,7 @@
             this.w = variablesAbstractFactory.CreatewFactory().Create(
                 dependenciesAbstractFactory.CreateVariableCollectionFactory().Create(
                     model: this.Model, 
-                    indexSet1: this.j.Value,
+                    indexSet1: this.j.Value.Values,
                     indexSet2: this.r.Value,
                     lowerBoundGenerator: (a, b) => 0, 
                     upperBoundGenerator: (a, b) => 1, 

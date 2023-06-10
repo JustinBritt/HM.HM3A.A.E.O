@@ -46,7 +46,7 @@
             Iw w)
         {
             return surgicalSpecialtyNumberAssignedOperatingRoomsFactory.Create(
-                j.Value
+                j.Value.Values
                 .Select(i => surgicalSpecialtyNumberAssignedOperatingRoomsResultElementCalculation.Calculate(
                     surgicalSpecialtyNumberAssignedOperatingRoomsResultElementFactory,
                     i,
