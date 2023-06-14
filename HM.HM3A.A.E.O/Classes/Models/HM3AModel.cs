@@ -140,12 +140,15 @@
                 .ToImmutableList());
 
             // C(m)
+            IMachineCostsVisitor<Device, Money> machineCostsVisitor = new HM.HM3A.A.E.O.Visitors.Contexts.MachineCostsVisitor<Device, Money>(
+                parameterElementsAbstractFactory.CreateCParameterElementFactory(),
+                this.m);
+
+            this.Context.MachineCosts.AcceptVisitor(
+                machineCostsVisitor);
+
             this.C = parametersAbstractFactory.CreateCFactory().Create(
-                this.Context.MachineCosts
-                .Select(x => parameterElementsAbstractFactory.CreateCParameterElementFactory().Create(
-                    this.m.GetElementAt(x.Key),
-                    x.Value))
-                .ToImmutableList());
+                machineCostsVisitor.RedBlackTree);
 
             // Δ(j)
             ISurgicalSpecialtiesVisitor<Organization, ImmutableSortedSet<Organization>> surgicalSpecialtiesVisitor = new HM.HM3A.A.E.O.Visitors.Contexts.SurgicalSpecialtiesVisitor<Organization, ImmutableSortedSet<Organization>>(

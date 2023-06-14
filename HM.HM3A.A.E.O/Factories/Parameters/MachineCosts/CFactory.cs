@@ -1,11 +1,13 @@
 ﻿namespace HM.HM3A.A.E.O.Factories.Parameters.MachineCosts
 {
     using System;
-    using System.Collections.Immutable;
 
     using log4net;
 
+    using NGenerics.DataStructures.Trees;
+
     using HM.HM3A.A.E.O.Classes.Parameters.MachineCosts;
+    using HM.HM3A.A.E.O.Interfaces.IndexElements;
     using HM.HM3A.A.E.O.Interfaces.ParameterElements.MachineCosts;
     using HM.HM3A.A.E.O.Interfaces.Parameters.MachineCosts;
     using HM.HM3A.A.E.O.InterfacesFactories.Parameters.MachineCosts;
@@ -19,7 +21,7 @@
         }
 
         public IC Create(
-            ImmutableList<ICParameterElement> value)
+            RedBlackTree<ImIndexElement, ICParameterElement> value)
         {
             IC parameter = null;
 
