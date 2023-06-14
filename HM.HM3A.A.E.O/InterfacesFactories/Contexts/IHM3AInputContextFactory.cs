@@ -6,8 +6,10 @@
 
     using Hl7.Fhir.Model;
 
-    using HM.HM3A.A.E.O.Interfaces.Contexts;
+    using NGenerics.DataStructures.Trees;
 
+    using HM.HM3A.A.E.O.Interfaces.Contexts;
+    
     public interface IHM3AInputContextFactory
     {
         IHM3AInputContext Create(
@@ -20,6 +22,6 @@
             ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonNumberAssignedTimeBlocks,
             ImmutableList<KeyValuePair<Device, Money>> machineCosts,
             ImmutableList<Tuple<Organization, Device, INullableValue<bool>>> surgeonMachineRequirements,
-            ImmutableList<KeyValuePair<FhirDateTime, INullableValue<bool>>> dayAvailabilities);
+            RedBlackTree<FhirDateTime, INullableValue<bool>> dayAvailabilities);
     }
 }

@@ -8,6 +8,8 @@
 
     using Hl7.Fhir.Model;
 
+    using NGenerics.DataStructures.Trees;
+
     using HM.HM3A.A.E.O.Interfaces.Contexts;
 
     public sealed class HM3AInputContext : IHM3AInputContext
@@ -24,7 +26,7 @@
             ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonNumberAssignedTimeBlocks,
             ImmutableList<KeyValuePair<Device, Money>> machineCosts,
             ImmutableList<Tuple<Organization, Device, INullableValue<bool>>> surgeonMachineRequirements,
-            ImmutableList<KeyValuePair<FhirDateTime, INullableValue<bool>>> dayAvailabilities)
+            RedBlackTree<FhirDateTime, INullableValue<bool>> dayAvailabilities)
         {
             this.SurgicalSpecialties = surgicalSpecialties;
 
@@ -65,6 +67,6 @@
 
         public ImmutableList<Tuple<Organization, Device, INullableValue<bool>>> SurgeonMachineRequirements { get; }
 
-        public ImmutableList<KeyValuePair<FhirDateTime, INullableValue<bool>>> DayAvailabilities { get; }
+        public RedBlackTree<FhirDateTime, INullableValue<bool>> DayAvailabilities { get; }
     }
 }

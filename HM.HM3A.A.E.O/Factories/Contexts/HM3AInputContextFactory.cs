@@ -8,10 +8,12 @@
 
     using Hl7.Fhir.Model;
 
+    using NGenerics.DataStructures.Trees;
+
     using HM.HM3A.A.E.O.Classes.Contexts;
     using HM.HM3A.A.E.O.Interfaces.Contexts;
     using HM.HM3A.A.E.O.InterfacesFactories.Contexts;
-
+    
     internal sealed class HM3AInputContextFactory : IHM3AInputContextFactory
     {
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -30,7 +32,7 @@
             ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonNumberAssignedTimeBlocks,
             ImmutableList<KeyValuePair<Device, Money>> machineCosts,
             ImmutableList<Tuple<Organization, Device, INullableValue<bool>>> surgeonMachineRequirements,
-            ImmutableList<KeyValuePair<FhirDateTime, INullableValue<bool>>> dayAvailabilities)
+            RedBlackTree<FhirDateTime, INullableValue<bool>> dayAvailabilities)
         {
             IHM3AInputContext context = null;
 

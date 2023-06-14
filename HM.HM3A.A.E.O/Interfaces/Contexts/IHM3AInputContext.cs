@@ -5,6 +5,7 @@
     using System.Collections.Immutable;
 
     using Hl7.Fhir.Model;
+    using NGenerics.DataStructures.Trees;
 
     public interface IHM3AInputContext
     {
@@ -26,6 +27,6 @@
 
         ImmutableList<Tuple<Organization, Device, INullableValue<bool>>> SurgeonMachineRequirements { get; }
 
-        ImmutableList<KeyValuePair<FhirDateTime, INullableValue<bool>>> DayAvailabilities { get; }
+        RedBlackTree<FhirDateTime, INullableValue<bool>> DayAvailabilities { get; }
     }
 }
