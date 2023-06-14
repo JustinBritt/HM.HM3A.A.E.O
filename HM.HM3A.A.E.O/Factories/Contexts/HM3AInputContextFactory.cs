@@ -27,7 +27,7 @@
             Bundle machines,
             Bundle operatingRooms,
             Bundle surgeons,
-            ImmutableList<KeyValuePair<INullableValue<int>, FhirDateTime>> planningHorizon,
+            RedBlackTree<INullableValue<int>, FhirDateTime> planningHorizon,
             ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgicalSpecialtyNumberAssignedTimeBlocks,
             ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonNumberAssignedTimeBlocks,
             RedBlackTree<Device, Money> machineCosts,
