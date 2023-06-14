@@ -30,7 +30,7 @@
             ImmutableList<KeyValuePair<INullableValue<int>, FhirDateTime>> planningHorizon,
             ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgicalSpecialtyNumberAssignedTimeBlocks,
             ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonNumberAssignedTimeBlocks,
-            ImmutableList<KeyValuePair<Device, Money>> machineCosts,
+            RedBlackTree<Device, Money> machineCosts,
             ImmutableList<Tuple<Organization, Device, INullableValue<bool>>> surgeonMachineRequirements,
             RedBlackTree<FhirDateTime, INullableValue<bool>> dayAvailabilities)
         {

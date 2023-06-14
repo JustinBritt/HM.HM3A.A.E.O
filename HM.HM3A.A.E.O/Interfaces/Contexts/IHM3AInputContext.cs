@@ -23,7 +23,7 @@
 
         ImmutableList<KeyValuePair<Organization, INullableValue<int>>> SurgeonNumberAssignedTimeBlocks { get; }
 
-        ImmutableList<KeyValuePair<Device, Money>> MachineCosts { get; }
+        RedBlackTree<Device, Money> MachineCosts { get; }
 
         ImmutableList<Tuple<Organization, Device, INullableValue<bool>>> SurgeonMachineRequirements { get; }
 
