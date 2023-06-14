@@ -25,7 +25,7 @@
 
         RedBlackTree<Device, Money> MachineCosts { get; }
 
-        ImmutableList<Tuple<Organization, Device, INullableValue<bool>>> SurgeonMachineRequirements { get; }
+        RedBlackTree<Organization, RedBlackTree<Device, INullableValue<bool>>> SurgeonMachineRequirements { get; }
 
         RedBlackTree<FhirDateTime, INullableValue<bool>> DayAvailabilities { get; }
     }

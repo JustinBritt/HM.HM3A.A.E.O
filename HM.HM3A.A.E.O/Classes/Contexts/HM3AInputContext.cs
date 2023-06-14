@@ -25,7 +25,7 @@
             ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgicalSpecialtyNumberAssignedTimeBlocks,
             ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonNumberAssignedTimeBlocks,
             RedBlackTree<Device, Money> machineCosts,
-            ImmutableList<Tuple<Organization, Device, INullableValue<bool>>> surgeonMachineRequirements,
+            RedBlackTree<Organization, RedBlackTree<Device, INullableValue<bool>>> surgeonMachineRequirements,
             RedBlackTree<FhirDateTime, INullableValue<bool>> dayAvailabilities)
         {
             this.SurgicalSpecialties = surgicalSpecialties;
@@ -65,7 +65,7 @@
 
         public RedBlackTree<Device, Money> MachineCosts { get; }
 
-        public ImmutableList<Tuple<Organization, Device, INullableValue<bool>>> SurgeonMachineRequirements { get; }
+        public RedBlackTree<Organization, RedBlackTree<Device, INullableValue<bool>>> SurgeonMachineRequirements { get; }
 
         public RedBlackTree<FhirDateTime, INullableValue<bool>> DayAvailabilities { get; }
     }

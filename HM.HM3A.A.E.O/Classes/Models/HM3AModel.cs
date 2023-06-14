@@ -22,6 +22,7 @@
     using HM.HM3A.A.E.O.Interfaces.Parameters.SurgicalSpecialties;
     using HM.HM3A.A.E.O.Interfaces.Variables;
     using HM.HM3A.A.E.O.InterfacesVisitors.Contexts;
+    using NGenerics.DataStructures.Trees;
 
     internal abstract class HM3AModel
     {
@@ -160,13 +161,16 @@
                 surgicalSpecialtiesVisitor.Value.ToImmutableList());
 
             // ζ(s, m)
+            ISurgeonMachineRequirementsOuterVisitor<Organization, RedBlackTree<Device, INullableValue<bool>>> surgeonMachineRequirementsOuterVisitor = new HM.HM3A.A.E.O.Visitors.Contexts.SurgeonMachineRequirementsOuterVisitor<Organization, RedBlackTree<Device, INullableValue<bool>>>(
+                parameterElementsAbstractFactory.CreateζParameterElementFactory(),
+                this.m,
+                this.s);
+
+            this.Context.SurgeonMachineRequirements.AcceptVisitor(
+                surgeonMachineRequirementsOuterVisitor);
+
             this.ζ = parametersAbstractFactory.CreateζFactory().Create(
-                this.Context.SurgeonMachineRequirements
-                .Select(x => parameterElementsAbstractFactory.CreateζParameterElementFactory().Create(
-                    this.s.GetElementAt(x.Item1),
-                    this.m.GetElementAt(x.Item2),
-                    x.Item3))
-                .ToImmutableList());
+                surgeonMachineRequirementsOuterVisitor.RedBlackTree);
 
             // ψ(t)
             this.ψ = parametersAbstractFactory.CreateψFactory().Create(
