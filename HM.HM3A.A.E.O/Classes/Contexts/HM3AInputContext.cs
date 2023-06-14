@@ -17,7 +17,7 @@
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public HM3AInputContext(
-            ImmutableList<Tuple<Organization, ImmutableList<Organization>>> surgicalSpecialties,
+            RedBlackTree<Organization, ImmutableSortedSet<Organization>> surgicalSpecialties,
             Bundle machines,
             Bundle operatingRooms,
             Bundle surgeons,
@@ -49,7 +49,7 @@
             this.DayAvailabilities = dayAvailabilities;
         }
 
-        public ImmutableList<Tuple<Organization, ImmutableList<Organization>>> SurgicalSpecialties { get; }
+        public RedBlackTree<Organization, ImmutableSortedSet<Organization>> SurgicalSpecialties { get; }
 
         public Bundle Machines { get; }
 

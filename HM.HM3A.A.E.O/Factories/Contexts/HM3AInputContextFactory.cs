@@ -23,7 +23,7 @@
         }
 
         public IHM3AInputContext Create(
-            ImmutableList<Tuple<Organization, ImmutableList<Organization>>> surgicalSpecialties,
+            RedBlackTree<Organization, ImmutableSortedSet<Organization>> surgicalSpecialties,
             Bundle machines,
             Bundle operatingRooms,
             Bundle surgeons,

@@ -9,7 +9,7 @@
 
     public interface IHM3AInputContext
     {
-        ImmutableList<Tuple<Organization, ImmutableList<Organization>>> SurgicalSpecialties { get; }
+        RedBlackTree<Organization, ImmutableSortedSet<Organization>> SurgicalSpecialties { get; }
 
         Bundle Machines { get; }
 

@@ -7,6 +7,8 @@
 
     using Hl7.Fhir.Model;
 
+    using NGenerics.Patterns.Visitor;
+
     using OPTANO.Modeling.Optimization;
     using OPTANO.Modeling.Optimization.Enums;
 
@@ -19,6 +21,7 @@
     using HM.HM3A.A.E.O.Interfaces.Parameters.SurgeonMachineRequirements;
     using HM.HM3A.A.E.O.Interfaces.Parameters.SurgicalSpecialties;
     using HM.HM3A.A.E.O.Interfaces.Variables;
+    using HM.HM3A.A.E.O.InterfacesVisitors.Contexts;
 
     internal abstract class HM3AModel
     {
@@ -48,7 +51,7 @@
             this.j = indicesAbstractFactory.CreatejFactory().Create(
                 comparersAbstractFactory.CreateOrganizationComparerFactory().Create(),
                 this.Context.SurgicalSpecialties
-                .Select(x => x.Item1)
+                .Select(x => x.Key)
                 .Select(x => indexElementsAbstractFactory.CreatejIndexElementFactory().Create(x))
                 .ToImmutableList());
 
@@ -144,12 +147,17 @@
                 .ToImmutableList());
 
             // Δ(j)
+            ISurgicalSpecialtiesVisitor<Organization, ImmutableSortedSet<Organization>> surgicalSpecialtiesVisitor = new HM.HM3A.A.E.O.Visitors.Contexts.SurgicalSpecialtiesVisitor<Organization, ImmutableSortedSet<Organization>>(
+                parameterElementsAbstractFactory.CreateΔParameterElementFactory(),
+                this.j,
+                this.s);
+
+            this.Context.SurgicalSpecialties.AcceptVisitor(
+                surgicalSpecialtiesVisitor);
+
             this.Δ = parametersAbstractFactory.CreateΔFactory().Create(
-                this.Context.SurgicalSpecialties
-                .Select(x => parameterElementsAbstractFactory.CreateΔParameterElementFactory().Create(
-                    this.j.GetElementAt(x.Item1),
-                    x.Item2.Select(i => this.s.GetElementAt(i)).ToImmutableList()))
-                .ToImmutableList());
+                surgicalSpecialtiesVisitor.RedBlackTree,
+                surgicalSpecialtiesVisitor.Value.ToImmutableList());
 
             // ζ(s, m)
             this.ζ = parametersAbstractFactory.CreateζFactory().Create(
