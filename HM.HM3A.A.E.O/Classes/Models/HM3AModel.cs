@@ -176,12 +176,15 @@
                 surgeonMachineRequirementsOuterVisitor.RedBlackTree);
 
             // ψ(t)
+            IDayAvailabilitiesVisitor<FhirDateTime, INullableValue<bool>> dayAvailabilitiesVisitor = new HM.HM3A.A.E.O.Visitors.Contexts.DayAvailabilitiesVisitor<FhirDateTime, INullableValue<bool>>(
+                parameterElementsAbstractFactory.CreateψParameterElementFactory(),
+                this.t);
+
+            this.Context.DayAvailabilities.AcceptVisitor(
+                dayAvailabilitiesVisitor);
+
             this.ψ = parametersAbstractFactory.CreateψFactory().Create(
-                this.Context.DayAvailabilities
-                .Select(x => parameterElementsAbstractFactory.CreateψParameterElementFactory().Create(
-                    this.t.GetElementAt(x.Key),
-                    x.Value))
-                .ToImmutableList());
+                dayAvailabilitiesVisitor.RedBlackTree);
 
             // Variables
 
