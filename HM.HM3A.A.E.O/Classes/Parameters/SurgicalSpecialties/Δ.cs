@@ -1,7 +1,6 @@
 ﻿namespace HM.HM3A.A.E.O.Classes.Parameters.SurgicalSpecialties
 {
     using System.Collections.Immutable;
-    using System.Linq;
 
     using log4net;
 
@@ -32,11 +31,9 @@
             IjIndexElement jIndexElement,
             IsIndexElement sIndexElement)
         {
-            return this.Value
-                .Where(x => x.jIndexElement == jIndexElement)
-                .Select(x => x.Value)
-                .SingleOrDefault()
-                .Contains(sIndexElement);
+            return this.RedBlackTree[jIndexElement]
+                .Contains(
+                sIndexElement);
         }
     }
 }
