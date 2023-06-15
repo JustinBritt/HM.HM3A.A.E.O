@@ -1,7 +1,5 @@
 ﻿namespace HM.HM3A.A.E.O.Interfaces.Contexts
 {
-    using System;
-    using System.Collections.Generic;
     using System.Collections.Immutable;
 
     using Hl7.Fhir.Model;
