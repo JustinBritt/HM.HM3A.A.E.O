@@ -19,7 +19,7 @@
 
         RedBlackTree<INullableValue<int>, FhirDateTime> PlanningHorizon { get; }
 
-        ImmutableList<KeyValuePair<Organization, INullableValue<int>>> SurgicalSpecialtyNumberAssignedTimeBlocks { get; }
+        RedBlackTree<Organization, INullableValue<int>> SurgicalSpecialtyNumberAssignedTimeBlocks { get; }
 
         ImmutableList<KeyValuePair<Organization, INullableValue<int>>> SurgeonNumberAssignedTimeBlocks { get; }
 

@@ -22,7 +22,7 @@
             Bundle operatingRooms,
             Bundle surgeons,
             RedBlackTree<INullableValue<int>, FhirDateTime> planningHorizon,
-            ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgicalSpecialtyNumberAssignedTimeBlocks,
+            RedBlackTree<Organization, INullableValue<int>> surgicalSpecialtyNumberAssignedTimeBlocks,
             ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonNumberAssignedTimeBlocks,
             RedBlackTree<Device, Money> machineCosts,
             RedBlackTree<Organization, RedBlackTree<Device, INullableValue<bool>>> surgeonMachineRequirements,
@@ -59,7 +59,7 @@
 
         public RedBlackTree<INullableValue<int>, FhirDateTime> PlanningHorizon { get; }
 
-        public ImmutableList<KeyValuePair<Organization, INullableValue<int>>> SurgicalSpecialtyNumberAssignedTimeBlocks { get; }
+        public RedBlackTree<Organization, INullableValue<int>> SurgicalSpecialtyNumberAssignedTimeBlocks { get; }
 
         public ImmutableList<KeyValuePair<Organization, INullableValue<int>>> SurgeonNumberAssignedTimeBlocks { get; }
 
