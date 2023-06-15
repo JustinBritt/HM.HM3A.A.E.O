@@ -1,7 +1,5 @@
 ﻿namespace HM.HM3A.A.E.O.InterfacesFactories.Contexts
 {
-    using System;
-    using System.Collections.Generic;
     using System.Collections.Immutable;
 
     using Hl7.Fhir.Model;
@@ -19,7 +17,7 @@
             Bundle surgeons,
             RedBlackTree<INullableValue<int>, FhirDateTime> planningHorizon,
             RedBlackTree<Organization, INullableValue<int>> surgicalSpecialtyNumberAssignedTimeBlocks,
-            ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonNumberAssignedTimeBlocks,
+            RedBlackTree<Organization, INullableValue<int>> surgeonNumberAssignedTimeBlocks,
             RedBlackTree<Device, Money> machineCosts,
             RedBlackTree<Organization, RedBlackTree<Device, INullableValue<bool>>> surgeonMachineRequirements,
             RedBlackTree<FhirDateTime, INullableValue<bool>> dayAvailabilities);

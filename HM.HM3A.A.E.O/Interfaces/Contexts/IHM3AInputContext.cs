@@ -21,7 +21,7 @@
 
         RedBlackTree<Organization, INullableValue<int>> SurgicalSpecialtyNumberAssignedTimeBlocks { get; }
 
-        ImmutableList<KeyValuePair<Organization, INullableValue<int>>> SurgeonNumberAssignedTimeBlocks { get; }
+        RedBlackTree<Organization, INullableValue<int>> SurgeonNumberAssignedTimeBlocks { get; }
 
         RedBlackTree<Device, Money> MachineCosts { get; }
 
