@@ -138,12 +138,15 @@
                 .ToImmutableList());
 
             // B(s)
+            ISurgeonNumberAssignedTimeBlocksVisitor<Organization, INullableValue<int>> surgeonNumberAssignedTimeBlocksVisitor = new HM.HM3A.A.E.O.Visitors.Contexts.SurgeonNumberAssignedTimeBlocksVisitor<Organization, INullableValue<int>>(
+                parameterElementsAbstractFactory.CreateBsParameterElementFactory(),
+                this.s);
+
+            this.Context.SurgeonNumberAssignedTimeBlocks.AcceptVisitor(
+                surgeonNumberAssignedTimeBlocksVisitor);
+
             this.Bs = parametersAbstractFactory.CreateBsFactory().Create(
-                this.Context.SurgeonNumberAssignedTimeBlocks
-                .Select(x => parameterElementsAbstractFactory.CreateBsParameterElementFactory().Create(
-                    this.s.GetElementAt(x.Key),
-                    x.Value))
-                .ToImmutableList());
+                surgeonNumberAssignedTimeBlocksVisitor.RedBlackTree);
 
             // C(m)
             IMachineCostsVisitor<Device, Money> machineCostsVisitor = new HM.HM3A.A.E.O.Visitors.Contexts.MachineCostsVisitor<Device, Money>(
