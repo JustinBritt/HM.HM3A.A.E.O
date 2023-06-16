@@ -76,6 +76,7 @@
 
             // s
             this.s = indicesAbstractFactory.CreatesFactory().Create(
+                comparersAbstractFactory.CreateOrganizationComparerFactory().Create(),
                 this.Context.Surgeons
                 .Entry
                 .Where(x => x.Resource is Organization)
@@ -112,13 +113,13 @@
 
             // sr
             this.sr = crossJoinsAbstractFactory.CreatesrFactory().Create(
-                this.s.Value
+                this.s.Value.Values
                 .SelectMany(b => this.r.Value.Values, (a, b) => crossJoinElementsAbstractFactory.CreatesrCrossJoinElementFactory().Create(a, b))
                 .ToImmutableList());
 
             // srj
             this.srj = crossJoinsAbstractFactory.CreatesrjFactory().Create(
-                this.s.Value
+                this.s.Value.Values
                 .SelectMany(b => this.r.Value.Values, (a, b) => crossJoinElementsAbstractFactory.CreatesrCrossJoinElementFactory().Create(a, b))
                 .SelectMany(b => this.j.Value.Values, (a, b) => crossJoinElementsAbstractFactory.CreatesrjCrossJoinElementFactory().Create(a.sIndexElement, a.rIndexElement, b))
                 .ToImmutableList());
@@ -194,7 +195,7 @@
             this.b = variablesAbstractFactory.CreatebFactory().Create(
                 dependenciesAbstractFactory.CreateVariableCollectionFactory().Create(
                     model: this.Model,
-                    indexSet1: this.s.Value,
+                    indexSet1: this.s.Value.Values,
                     indexSet2: this.r.Value.Values,
                     lowerBoundGenerator: (a, b) => 0,
                     upperBoundGenerator: (a, b) => int.MaxValue,
@@ -224,7 +225,7 @@
             this.y = variablesAbstractFactory.CreateyFactory().Create(
                 dependenciesAbstractFactory.CreateVariableCollectionFactory().Create(
                     model: this.Model, 
-                    indexSet1: this.s.Value, 
+                    indexSet1: this.s.Value.Values, 
                     indexSet2: this.r.Value.Values, 
                     lowerBoundGenerator: (a, b) => 0, 
                     upperBoundGenerator: (a, b) => 1, 
@@ -258,7 +259,7 @@
 
             // Constraints 2
             this.Model.AddConstraints(
-                this.s.Value
+                this.s.Value.Values
                 .Select(
                     x => constraintElementsAbstractFactory.CreateConstraints2ConstraintElementFactory().Create(
                         x,

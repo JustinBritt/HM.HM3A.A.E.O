@@ -26,7 +26,7 @@
             Iy y)
         {
             Expression LHS = Expression.Sum(
-                s.Value
+                s.Value.Values
                 .Select(
                     x => y.Value[x, rIndexElement]
                     *
