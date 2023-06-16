@@ -84,12 +84,15 @@
                 .ToImmutableList());
 
             // t
+            IPlanningHorizonVisitor<INullableValue<int>, FhirDateTime> planningHorizonVisitor = new HM.HM3A.A.E.O.Visitors.Contexts.PlanningHorizonVisitor<INullableValue<int>, FhirDateTime>(
+                    indexElementsAbstractFactory.CreatetIndexElementFactory(),
+                    comparersAbstractFactory.CreateFhirDateTimeComparerFactory().Create());
+
+            this.Context.PlanningHorizon.AcceptVisitor(
+                planningHorizonVisitor);
+
             this.t = indicesAbstractFactory.CreatetFactory().Create(
-                this.Context.PlanningHorizon
-                .Select(x => indexElementsAbstractFactory.CreatetIndexElementFactory().Create(
-                    x.Key.Value.Value,
-                    x.Value))
-                .ToImmutableList());
+                planningHorizonVisitor.RedBlackTree);
 
             // Cross joins
 
@@ -108,7 +111,7 @@
             // rt
             this.rt = crossJoinsAbstractFactory.CreatertFactory().Create(
                 this.r.Value.Values
-                .SelectMany(b => this.t.Value, (a, b) => crossJoinElementsAbstractFactory.CreatertCrossJoinElementFactory().Create(a, b))
+                .SelectMany(b => this.t.Value.Values, (a, b) => crossJoinElementsAbstractFactory.CreatertCrossJoinElementFactory().Create(a, b))
                 .ToImmutableList());
 
             // sr
@@ -236,7 +239,7 @@
                 dependenciesAbstractFactory.CreateVariableCollectionFactory().Create(
                     model: this.Model, 
                     indexSet1: this.r.Value.Values, 
-                    indexSet2: this.t.Value, 
+                    indexSet2: this.t.Value.Values, 
                     lowerBoundGenerator: (a, b) => 0, 
                     upperBoundGenerator: (a, b) => 1, 
                     variableTypeGenerator: (a, b) => VariableType.Binary));

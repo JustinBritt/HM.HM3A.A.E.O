@@ -1,9 +1,12 @@
 ﻿namespace HM.HM3A.A.E.O.Factories.Indices
 {
     using System;
-    using System.Collections.Immutable;
 
     using log4net;
+
+    using Hl7.Fhir.Model;
+
+    using NGenerics.DataStructures.Trees;
 
     using HM.HM3A.A.E.O.Classes.Indices;
     using HM.HM3A.A.E.O.Interfaces.IndexElements;
@@ -19,7 +22,7 @@
         }
 
         public It Create(
-            ImmutableList<ItIndexElement> value)
+            RedBlackTree<FhirDateTime, ItIndexElement> value)
         {
             It index = null;
 
