@@ -61,7 +61,8 @@
             this.MachineOperatingRoomAssignments = HM3AModel.v.GetElementsAt(
                 resultElementsAbstractFactory.CreatevResultElementFactory(),
                 resultsAbstractFactory.CreatevFactory(),
-                HM3AModel.mr)
+                HM3AModel.m,
+                HM3AModel.r)
                 .GetValueForOutputContext(
                 dependenciesAbstractFactory.CreateNullableValueFactory());
 

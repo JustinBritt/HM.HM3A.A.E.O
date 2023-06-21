@@ -16,6 +16,10 @@
 
         Ij j { get; }
 
+        Im m { get; }
+
+        Ir r { get; }
+
         Is s { get; }
 
         Ijr jr { get; }

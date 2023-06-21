@@ -4,6 +4,7 @@
 
     using HM.HM3A.A.E.O.Interfaces.CrossJoins;
     using HM.HM3A.A.E.O.Interfaces.IndexElements;
+    using HM.HM3A.A.E.O.Interfaces.Indices;
     using HM.HM3A.A.E.O.InterfacesFactories.ResultElements.MachineOperatingRoomAssignments;
     using HM.HM3A.A.E.O.InterfacesFactories.Results.MachineOperatingRoomAssignments;
 
@@ -18,6 +19,7 @@
         Interfaces.Results.MachineOperatingRoomAssignments.Iv GetElementsAt(
             IvResultElementFactory vResultElementFactory,
             IvFactory vFactory,
-            Imr mr);
+            Im m,
+            Ir r);
     }
 }
