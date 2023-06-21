@@ -24,7 +24,6 @@
 
         public yOuterVisitor(
             INullableValueFactory nullableValueFactory,
-            IDeviceComparer deviceComparer,
             ILocationComparer locationComparer,
             IOrganizationComparer organizationComparer,
             Ir r,
