@@ -11,7 +11,6 @@
 
     using HM.HM3A.A.E.O.Interfaces.Comparers;
     using HM.HM3A.A.E.O.Interfaces.IndexElements;
-    using HM.HM3A.A.E.O.Interfaces.Indices;
     using HM.HM3A.A.E.O.Interfaces.ResultElements.MachineOperatingRoomAssignments;
     using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.Hl7.Fhir.R4.Model;
     using HM.HM3A.A.E.O.InterfacesVisitors.Results.MachineOperatingRoomAssignments;
@@ -25,17 +24,11 @@
         public vOuterVisitor(
             INullableValueFactory nullableValueFactory,
             IDeviceComparer deviceComparer,
-            ILocationComparer locationComparer,
-            Im m,
-            Ir r)
+            ILocationComparer locationComparer)
         {
             this.NullableValueFactory = nullableValueFactory;
 
             this.LocationComparer = locationComparer;
-
-            this.m = m;
-
-            this.r = r;
 
             this.RedBlackTree = new RedBlackTree<Device, RedBlackTree<Location, INullableValue<bool>>>(
                 deviceComparer);
@@ -44,10 +37,6 @@
         private INullableValueFactory NullableValueFactory { get; }
 
         private ILocationComparer LocationComparer { get; }
-
-        private Im m { get; }
-
-        private Ir r { get; }
 
         public bool HasCompleted => false;
 
@@ -62,8 +51,7 @@
 
             var innerVisitor = new vInnerVisitor<IrIndexElement, IvResultElement>(
                 this.NullableValueFactory,
-                this.LocationComparer,
-                this.r);
+                this.LocationComparer);
 
             value.AcceptVisitor(
                 innerVisitor);

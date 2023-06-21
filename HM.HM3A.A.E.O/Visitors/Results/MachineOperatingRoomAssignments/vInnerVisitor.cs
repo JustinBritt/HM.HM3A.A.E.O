@@ -23,20 +23,15 @@
 
         public vInnerVisitor(
             INullableValueFactory nullableValueFactory,
-            ILocationComparer locationComparer,
-            Ir r)
+            ILocationComparer locationComparer)
         {
             this.NullableValueFactory = nullableValueFactory;
-
-            this.r = r;
 
             this.RedBlackTree = new RedBlackTree<Location, INullableValue<bool>>(
                 locationComparer);
         }
 
         private INullableValueFactory NullableValueFactory { get; }
-
-        private Ir r { get; }
 
         public bool HasCompleted => false;
 

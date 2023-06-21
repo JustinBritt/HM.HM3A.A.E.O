@@ -34,9 +34,7 @@
             IvOuterVisitor<ImIndexElement, RedBlackTree<IrIndexElement, IvResultElement>> vOuterVisitor = new HM.HM3A.A.E.O.Visitors.Results.MachineOperatingRoomAssignments.vOuterVisitor<ImIndexElement, RedBlackTree<IrIndexElement, IvResultElement>>(
                 nullableValueFactory,
                 new HM.HM3A.A.E.O.Classes.Comparers.DeviceComparer(),
-                new HM.HM3A.A.E.O.Classes.Comparers.LocationComparer(),
-                m,
-                r);
+                new HM.HM3A.A.E.O.Classes.Comparers.LocationComparer());
 
             this.Value.AcceptVisitor(
                 vOuterVisitor);
