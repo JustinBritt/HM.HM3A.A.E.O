@@ -27,7 +27,7 @@
         {
             return surgicalSpecialtyNumberAssignedOperatingRoomsResultElementFactory.Create(
                 ΔParameterElement.jIndexElement,
-                ΔParameterElement.Value.SelectMany(a => y.Value.Where(i => i.sIndexElement == a && i.Value).Select(w => w.rIndexElement)).Distinct().Count());
+                ΔParameterElement.Value.SelectMany(a => y.Value[a].Where(i => i.Value.Value).Select(w => w.Key)).Distinct().Count());
         }
 
         public ISurgicalSpecialtyNumberAssignedOperatingRoomsResultElement Calculate(

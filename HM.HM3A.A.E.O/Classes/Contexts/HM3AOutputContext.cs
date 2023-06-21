@@ -82,7 +82,8 @@
             Iy y = HM3AModel.y.GetElementsAt(
                 resultElementsAbstractFactory.CreateyResultElementFactory(),
                 resultsAbstractFactory.CreateyFactory(),
-                HM3AModel.sr);
+                HM3AModel.r,
+                HM3AModel.s);
 
             this.SurgeonOperatingRoomAssignments = y
             .GetValueForOutputContext(
