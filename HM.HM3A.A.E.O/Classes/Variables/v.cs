@@ -8,11 +8,11 @@
 
     using HM.HM3A.A.E.O.Interfaces.IndexElements;
     using HM.HM3A.A.E.O.Interfaces.Indices;
+    using HM.HM3A.A.E.O.Interfaces.ResultElements.MachineOperatingRoomAssignments;
     using HM.HM3A.A.E.O.Interfaces.Variables;
     using HM.HM3A.A.E.O.InterfacesFactories.ResultElements.MachineOperatingRoomAssignments;
     using HM.HM3A.A.E.O.InterfacesFactories.Results.MachineOperatingRoomAssignments;
-    using HM.HM3A.A.E.O.Interfaces.ResultElements.MachineOperatingRoomAssignments;
-
+    
     internal sealed class v : Iv
     {
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
