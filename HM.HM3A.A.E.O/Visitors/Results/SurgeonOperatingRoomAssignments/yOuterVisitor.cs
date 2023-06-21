@@ -25,17 +25,11 @@
         public yOuterVisitor(
             INullableValueFactory nullableValueFactory,
             ILocationComparer locationComparer,
-            IOrganizationComparer organizationComparer,
-            Ir r,
-            Is s)
+            IOrganizationComparer organizationComparer)
         {
             this.NullableValueFactory = nullableValueFactory;
 
             this.LocationComparer = locationComparer;
-
-            this.r = r;
-
-            this.s = s;
 
             this.RedBlackTree = new RedBlackTree<Organization, RedBlackTree<Location, INullableValue<bool>>>(
                 organizationComparer);
@@ -44,10 +38,6 @@
         private INullableValueFactory NullableValueFactory { get; }
 
         private ILocationComparer LocationComparer { get; }
-
-        private Ir r { get; }
-
-        private Is s { get; }
 
         public bool HasCompleted => false;
 
