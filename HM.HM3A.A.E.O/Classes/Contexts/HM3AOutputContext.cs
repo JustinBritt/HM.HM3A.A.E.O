@@ -8,6 +8,8 @@
 
     using Hl7.Fhir.Model;
 
+    using NGenerics.DataStructures.Trees;
+
     using OPTANO.Modeling.Optimization;
 
     using HM.HM3A.A.E.O.Enums;
@@ -64,7 +66,9 @@
                 HM3AModel.m,
                 HM3AModel.r)
                 .GetValueForOutputContext(
-                dependenciesAbstractFactory.CreateNullableValueFactory());
+                dependenciesAbstractFactory.CreateNullableValueFactory(),
+                HM3AModel.m,
+                HM3AModel.r);
 
             // w(j, r)
             this.SurgicalSpecialtyOperatingRoomAssignments = HM3AModel.w.GetElementsAt(
@@ -119,7 +123,7 @@
 
         public ImmutableList<Tuple<Organization, INullableValue<int>>> SurgicalSpecialtyNumberAssignedOperatingRooms { get; }
 
-        public ImmutableList<Tuple<Device, Location, INullableValue<bool>>> MachineOperatingRoomAssignments { get; }
+        public RedBlackTree<Device, RedBlackTree<Location, INullableValue<bool>>> MachineOperatingRoomAssignments { get; }
 
         public ImmutableList<Tuple<Organization, Location, INullableValue<bool>>> SurgicalSpecialtyOperatingRoomAssignments { get; }
 
