@@ -1,11 +1,13 @@
 ﻿namespace HM.HM3A.A.E.O.Factories.Results.MachineOperatingRoomAssignments
 {
     using System;
-    using System.Collections.Immutable;
 
     using log4net;
 
+    using NGenerics.DataStructures.Trees;
+
     using HM.HM3A.A.E.O.Classes.Results.MachineOperatingRoomAssignments;
+    using HM.HM3A.A.E.O.Interfaces.IndexElements;
     using HM.HM3A.A.E.O.Interfaces.ResultElements.MachineOperatingRoomAssignments;
     using HM.HM3A.A.E.O.Interfaces.Results.MachineOperatingRoomAssignments;
     using HM.HM3A.A.E.O.InterfacesFactories.Results.MachineOperatingRoomAssignments;
@@ -19,7 +21,7 @@
         }
 
         public Iv Create(
-            ImmutableList<IvResultElement> value)
+            RedBlackTree<ImIndexElement, RedBlackTree<IrIndexElement, IvResultElement>> value)
         {
             Iv result = null;
 
