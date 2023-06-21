@@ -11,7 +11,6 @@
 
     using HM.HM3A.A.E.O.Interfaces.Comparers;
     using HM.HM3A.A.E.O.Interfaces.IndexElements;
-    using HM.HM3A.A.E.O.Interfaces.Indices;
     using HM.HM3A.A.E.O.Interfaces.ResultElements.SurgeonOperatingRoomAssignments;
     using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.Hl7.Fhir.R4.Model;
     using HM.HM3A.A.E.O.InterfacesVisitors.Results.SurgeonOperatingRoomAssignments;
