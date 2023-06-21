@@ -8,10 +8,11 @@
     using NGenerics.Patterns.Visitor;
 
     using HM.HM3A.A.E.O.Interfaces.IndexElements;
+    using HM.HM3A.A.E.O.Interfaces.ResultElements.MachineOperatingRoomAssignments;
 
     public interface IvOuterVisitor<TKey, TValue> : IVisitor<KeyValuePair<TKey, TValue>>
         where TKey : ImIndexElement
-        where TValue : RedBlackTree<IrIndexElement, INullableValue<bool>>
+        where TValue : RedBlackTree<IrIndexElement, IvResultElement>
     {
         RedBlackTree<Device, RedBlackTree<Location, INullableValue<bool>>> RedBlackTree { get; }
     }

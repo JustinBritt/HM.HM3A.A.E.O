@@ -11,20 +11,22 @@
     using HM.HM3A.A.E.O.Interfaces.Comparers;
     using HM.HM3A.A.E.O.Interfaces.IndexElements;
     using HM.HM3A.A.E.O.Interfaces.Indices;
+    using HM.HM3A.A.E.O.Interfaces.ResultElements.MachineOperatingRoomAssignments;
+    using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.Hl7.Fhir.R4.Model;
     using HM.HM3A.A.E.O.InterfacesVisitors.Results.MachineOperatingRoomAssignments;
 
     internal sealed class vInnerVisitor<TKey, TValue> : IvInnerVisitor<TKey, TValue>
         where TKey : IrIndexElement
-        where TValue : INullableValue<bool>
+        where TValue : IvResultElement
     {
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public vInnerVisitor(
+            INullableValueFactory nullableValueFactory,
             ILocationComparer locationComparer,
-            ImIndexElement mIndexElement,
             Ir r)
         {
-            this.mIndexElement = mIndexElement;
+            this.NullableValueFactory = nullableValueFactory;
 
             this.r = r;
 
@@ -32,7 +34,7 @@
                 locationComparer);
         }
 
-        private ImIndexElement mIndexElement { get; }
+        private INullableValueFactory NullableValueFactory { get; }
 
         private Ir r { get; }
 
@@ -45,7 +47,8 @@
         {
             this.RedBlackTree.Add(
                 obj.Key.Value,
-                obj.Value);
+                this.NullableValueFactory.Create<bool>(
+                    obj.Value.Value));
         }
     }
 }
