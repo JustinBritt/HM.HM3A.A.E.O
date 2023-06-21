@@ -127,7 +127,7 @@
 
         public RedBlackTree<Device, RedBlackTree<Location, INullableValue<bool>>> MachineOperatingRoomAssignments { get; }
 
-        public ImmutableList<Tuple<Organization, Location, INullableValue<bool>>> SurgicalSpecialtyOperatingRoomAssignments { get; }
+        public RedBlackTree<Organization, RedBlackTree<Location, INullableValue<bool>>> SurgicalSpecialtyOperatingRoomAssignments { get; }
 
         public RedBlackTree<Organization, RedBlackTree<Location, INullableValue<bool>>> SurgeonOperatingRoomAssignments { get; }
     }
