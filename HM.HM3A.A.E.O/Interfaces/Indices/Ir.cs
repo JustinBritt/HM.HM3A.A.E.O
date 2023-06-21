@@ -9,5 +9,8 @@
     public interface Ir
     {
         RedBlackTree<Location, IrIndexElement> Value { get; }
+
+        IrIndexElement GetElementAt(
+            Location value);
     }
 }

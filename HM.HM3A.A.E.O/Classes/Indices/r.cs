@@ -20,5 +20,11 @@
         }
 
         public RedBlackTree<Location, IrIndexElement> Value { get; }
+
+        public IrIndexElement GetElementAt(
+            Location value)
+        {
+            return this.Value[value];
+        }
     }
 }
