@@ -74,7 +74,8 @@
             this.SurgicalSpecialtyOperatingRoomAssignments = HM3AModel.w.GetElementsAt(
                 resultElementsAbstractFactory.CreatewResultElementFactory(),
                 resultsAbstractFactory.CreatewFactory(),
-                HM3AModel.jr)
+                HM3AModel.j,
+                HM3AModel.r)
                 .GetValueForOutputContext(
                 dependenciesAbstractFactory.CreateNullableValueFactory());           
 

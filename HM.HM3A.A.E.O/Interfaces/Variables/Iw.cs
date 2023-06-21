@@ -2,8 +2,8 @@
 {
     using OPTANO.Modeling.Optimization;
 
-    using HM.HM3A.A.E.O.Interfaces.CrossJoins;
     using HM.HM3A.A.E.O.Interfaces.IndexElements;
+    using HM.HM3A.A.E.O.Interfaces.Indices;
     using HM.HM3A.A.E.O.InterfacesFactories.ResultElements.SurgicalSpecialtyOperatingRoomAssignments;
     using HM.HM3A.A.E.O.InterfacesFactories.Results.SurgicalSpecialtyOperatingRoomAssignments;
 
@@ -18,6 +18,7 @@
         Interfaces.Results.SurgicalSpecialtyOperatingRoomAssignments.Iw GetElementsAt(
             IwResultElementFactory wResultElementFactory,
             IwFactory wFactory,
-            Ijr jr);
+            Ij j,
+            Ir r);
     }
 }

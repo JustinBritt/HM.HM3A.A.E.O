@@ -1,11 +1,13 @@
 ﻿namespace HM.HM3A.A.E.O.Factories.Results.SurgicalSpecialtyOperatingRoomAssignments
 {
     using System;
-    using System.Collections.Immutable;
 
     using log4net;
 
+    using NGenerics.DataStructures.Trees;
+
     using HM.HM3A.A.E.O.Classes.Results.SurgicalSpecialtyOperatingRoomAssignments;
+    using HM.HM3A.A.E.O.Interfaces.IndexElements;
     using HM.HM3A.A.E.O.Interfaces.ResultElements.SurgicalSpecialtyOperatingRoomAssignments;
     using HM.HM3A.A.E.O.Interfaces.Results.SurgicalSpecialtyOperatingRoomAssignments;
     using HM.HM3A.A.E.O.InterfacesFactories.Results.SurgicalSpecialtyOperatingRoomAssignments;
@@ -19,7 +21,7 @@
         }
 
         public Iw Create(
-            ImmutableList<IwResultElement> value)
+            RedBlackTree<IjIndexElement, RedBlackTree<IrIndexElement, IwResultElement>> value)
         {
             Iw result = null;
 
