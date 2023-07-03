@@ -5,10 +5,12 @@
     using log4net;
 
     using HM.HM3A.A.E.O.Factories.Dependencies.Hl7.Fhir.R4.Model;
+    using HM.HM3A.A.E.O.Factories.Dependencies.NGenerics.DataStructures.Trees;
     using HM.HM3A.A.E.O.Factories.Dependencies.OPTANO.Modeling.Optimization;
     using HM.HM3A.A.E.O.Factories.Dependencies.OPTANO.Modeling.Optimization.Configuration;
     using HM.HM3A.A.E.O.InterfacesAbstractFactories;
     using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.Hl7.Fhir.R4.Model;
+    using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
     using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.OPTANO.Modeling.Optimization;
     using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.OPTANO.Modeling.Optimization.Configuration;
 
@@ -99,6 +101,24 @@
             try
             {
                 factory = new ObjectiveFactory();
+            }
+            catch (Exception exception)
+            {
+                this.Log.Error(
+                    exception.Message,
+                    exception);
+            }
+
+            return factory;
+        }
+
+        public IRedBlackTreeFactory CreateRedBlackTreeFactory()
+        {
+            IRedBlackTreeFactory factory = null;
+
+            try
+            {
+                factory = new RedBlackTreeFactory();
             }
             catch (Exception exception)
             {
