@@ -55,7 +55,7 @@
 
             RedBlackTree<IrIndexElement, IvResultElement> value = obj.Value;
 
-            var innerVisitor = new vInnerVisitor<IrIndexElement, IvResultElement>(
+            IvInnerVisitor<IrIndexElement, IvResultElement> innerVisitor = new vInnerVisitor<IrIndexElement, IvResultElement>(
                 this.NullableValueFactory,
                 this.RedBlackTreeFactory,
                 this.LocationComparer);
