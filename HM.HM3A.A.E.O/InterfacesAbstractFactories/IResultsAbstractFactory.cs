@@ -29,6 +29,8 @@
 
         IvFactory CreatevFactory();
 
+        IvInnerVisitorFactory CreatevInnerVisitorFactory();
+
         IvOuterVisitorFactory CreatevOuterVisitorFactory();
 
         IwFactory CreatewFactory();
