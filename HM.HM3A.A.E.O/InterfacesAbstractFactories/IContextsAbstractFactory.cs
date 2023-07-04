@@ -15,5 +15,7 @@
         IPlanningHorizonVisitorFactory CreatePlanningHorizonVisitorFactory();
 
         ISurgeonNumberAssignedTimeBlocksVisitorFactory CreateSurgeonNumberAssignedTimeBlocksVisitorFactory();
+
+        ISurgicalSpecialtiesVisitorFactory CreateSurgicalSpecialtiesVisitorFactory();
     }
 }
