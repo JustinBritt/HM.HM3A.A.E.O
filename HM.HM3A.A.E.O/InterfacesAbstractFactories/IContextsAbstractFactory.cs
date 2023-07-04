@@ -11,5 +11,7 @@
         IHM3AOutputContextFactory CreateHM3AOutputContextFactory();
 
         IMachineCostsVisitorFactory CreateMachineCostsVisitorFactory();
+
+        IPlanningHorizonVisitorFactory CreatePlanningHorizonVisitorFactory();
     }
 }
