@@ -34,5 +34,7 @@
         IwFactory CreatewFactory();
 
         IyFactory CreateyFactory();
+
+        IyOuterVisitorFactory CreateyOuterVisitorFactory();
     }
 }

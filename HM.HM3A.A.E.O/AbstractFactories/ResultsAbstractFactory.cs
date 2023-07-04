@@ -231,5 +231,23 @@
 
             return factory;
         }
+
+        public IyOuterVisitorFactory CreateyOuterVisitorFactory()
+        {
+            IyOuterVisitorFactory factory = null;
+
+            try
+            {
+                factory = new yOuterVisitorFactory();
+            }
+            catch (Exception exception)
+            {
+                this.Log.Error(
+                    exception.Message,
+                    exception);
+            }
+
+            return factory;
+        }
     }
 }
