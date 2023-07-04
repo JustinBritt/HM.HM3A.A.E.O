@@ -33,6 +33,8 @@
 
         IwFactory CreatewFactory();
 
+        IwOuterVisitorFactory CreatewOuterVisitorFactory();
+
         IyFactory CreateyFactory();
 
         IyOuterVisitorFactory CreateyOuterVisitorFactory();
