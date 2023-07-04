@@ -13,6 +13,7 @@
     using HM.HM3A.A.E.O.Interfaces.IndexElements;
     using HM.HM3A.A.E.O.Interfaces.ResultElements.MachineOperatingRoomAssignments;
     using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.Hl7.Fhir.R4.Model;
+    using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
     using HM.HM3A.A.E.O.InterfacesVisitors.Results.MachineOperatingRoomAssignments;
     
     internal sealed class vOuterVisitor<TKey, TValue> : IvOuterVisitor<TKey, TValue>
@@ -23,18 +24,23 @@
 
         public vOuterVisitor(
             INullableValueFactory nullableValueFactory,
+            IRedBlackTreeFactory redBlackTreeFactory,
             IDeviceComparer deviceComparer,
             ILocationComparer locationComparer)
         {
             this.NullableValueFactory = nullableValueFactory;
 
+            this.RedBlackTreeFactory = redBlackTreeFactory;
+
             this.LocationComparer = locationComparer;
 
-            this.RedBlackTree = new RedBlackTree<Device, RedBlackTree<Location, INullableValue<bool>>>(
+            this.RedBlackTree = redBlackTreeFactory.Create<Device, RedBlackTree<Location, INullableValue<bool>>>(
                 deviceComparer);
         }
 
         private INullableValueFactory NullableValueFactory { get; }
+
+        private IRedBlackTreeFactory RedBlackTreeFactory { get; }
 
         private ILocationComparer LocationComparer { get; }
 
@@ -51,6 +57,7 @@
 
             var innerVisitor = new vInnerVisitor<IrIndexElement, IvResultElement>(
                 this.NullableValueFactory,
+                this.RedBlackTreeFactory,
                 this.LocationComparer);
 
             value.AcceptVisitor(

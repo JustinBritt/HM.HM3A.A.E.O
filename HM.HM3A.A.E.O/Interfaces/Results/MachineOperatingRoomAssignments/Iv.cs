@@ -8,6 +8,7 @@
     using HM.HM3A.A.E.O.Interfaces.Indices;
     using HM.HM3A.A.E.O.Interfaces.ResultElements.MachineOperatingRoomAssignments;
     using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.Hl7.Fhir.R4.Model;
+    using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
 
     public interface Iv
     {
@@ -15,6 +16,7 @@
 
         RedBlackTree<Device, RedBlackTree<Location, INullableValue<bool>>> GetValueForOutputContext(
             INullableValueFactory nullableValueFactory,
+            IRedBlackTreeFactory redBlackTreeFactory,
             Im m,
             Ir r);
     }

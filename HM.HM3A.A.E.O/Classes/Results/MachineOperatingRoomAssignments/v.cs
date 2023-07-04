@@ -12,6 +12,7 @@
     using HM.HM3A.A.E.O.Interfaces.ResultElements.MachineOperatingRoomAssignments;
     using HM.HM3A.A.E.O.Interfaces.Results.MachineOperatingRoomAssignments;
     using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.Hl7.Fhir.R4.Model;
+    using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
     using HM.HM3A.A.E.O.InterfacesVisitors.Results.MachineOperatingRoomAssignments;
 
     internal sealed class v : Iv
@@ -28,11 +29,13 @@
 
         public RedBlackTree<Device, RedBlackTree<Location, INullableValue<bool>>> GetValueForOutputContext(
             INullableValueFactory nullableValueFactory,
+            IRedBlackTreeFactory redBlackTreeFactory,
             Im m,
             Ir r)
         {
             IvOuterVisitor<ImIndexElement, RedBlackTree<IrIndexElement, IvResultElement>> vOuterVisitor = new HM.HM3A.A.E.O.Visitors.Results.MachineOperatingRoomAssignments.vOuterVisitor<ImIndexElement, RedBlackTree<IrIndexElement, IvResultElement>>(
                 nullableValueFactory,
+                redBlackTreeFactory,
                 new HM.HM3A.A.E.O.Classes.Comparers.DeviceComparer(),
                 new HM.HM3A.A.E.O.Classes.Comparers.LocationComparer());
 

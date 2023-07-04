@@ -10,7 +10,7 @@
 
     using HM.HM3A.A.E.O.Interfaces.Comparers;
     using HM.HM3A.A.E.O.Interfaces.IndexElements;
-    using HM.HM3A.A.E.O.Interfaces.Indices;
+    using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
     using HM.HM3A.A.E.O.Interfaces.ResultElements.MachineOperatingRoomAssignments;
     using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.Hl7.Fhir.R4.Model;
     using HM.HM3A.A.E.O.InterfacesVisitors.Results.MachineOperatingRoomAssignments;
@@ -23,11 +23,12 @@
 
         public vInnerVisitor(
             INullableValueFactory nullableValueFactory,
+            IRedBlackTreeFactory redBlackTreeFactory,
             ILocationComparer locationComparer)
         {
             this.NullableValueFactory = nullableValueFactory;
 
-            this.RedBlackTree = new RedBlackTree<Location, INullableValue<bool>>(
+            this.RedBlackTree = redBlackTreeFactory.Create<Location, INullableValue<bool>>(
                 locationComparer);
         }
 

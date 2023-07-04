@@ -67,6 +67,7 @@
                 HM3AModel.r)
                 .GetValueForOutputContext(
                 dependenciesAbstractFactory.CreateNullableValueFactory(),
+                dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
                 HM3AModel.m,
                 HM3AModel.r);
 
