@@ -36,7 +36,7 @@
             IyInnerVisitorFactory yInnerVisitorFactory,
             IyOuterVisitorFactory yOuterVisitorFactory)
         {
-            IyOuterVisitor<IsIndexElement, RedBlackTree<IrIndexElement, IyResultElement>> yOuterVisitor = new HM.HM3A.A.E.O.Visitors.Results.SurgeonOperatingRoomAssignments.yOuterVisitor<IsIndexElement, RedBlackTree<IrIndexElement, IyResultElement>>(
+            IyOuterVisitor<IsIndexElement, RedBlackTree<IrIndexElement, IyResultElement>> yOuterVisitor = yOuterVisitorFactory.Create<IsIndexElement, RedBlackTree<IrIndexElement, IyResultElement>>(
                 nullableValueFactory,
                 redBlackTreeFactory,
                 yInnerVisitorFactory,
