@@ -12,6 +12,7 @@
     using HM.HM3A.A.E.O.Interfaces.IndexElements;
     using HM.HM3A.A.E.O.Interfaces.Indices;
     using HM.HM3A.A.E.O.Interfaces.ParameterElements.SurgeonMachineRequirements;
+    using HM.HM3A.A.E.O.InterfacesFactories.Contexts;
     using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
     using HM.HM3A.A.E.O.InterfacesFactories.ParameterElements.SurgeonMachineRequirements;
     using HM.HM3A.A.E.O.InterfacesVisitors.Contexts;
@@ -23,11 +24,14 @@
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public SurgeonMachineRequirementsOuterVisitor(
+            ISurgeonMachineRequirementsInnerVisitorFactory surgeonMachineRequirementsInnerVisitorFactory,
             IRedBlackTreeFactory redBlackTreeFactory,
             IζParameterElementFactory ζParameterElementFactory,
             Im m,
             Is s)
         {
+            this.SurgeonMachineRequirementsInnerVisitorFactory = surgeonMachineRequirementsInnerVisitorFactory;
+
             this.RedBlackTreeFactory = redBlackTreeFactory;
 
             this.ζParameterElementFactory = ζParameterElementFactory;
@@ -38,6 +42,8 @@
 
             this.RedBlackTree = redBlackTreeFactory.Create<IsIndexElement, RedBlackTree<ImIndexElement, IζParameterElement>>();
         }
+
+        private ISurgeonMachineRequirementsInnerVisitorFactory SurgeonMachineRequirementsInnerVisitorFactory { get; }
 
         private IRedBlackTreeFactory RedBlackTreeFactory { get; }
 
@@ -59,7 +65,7 @@
 
             RedBlackTree<Device, INullableValue<bool>> value = obj.Value;
 
-            ISurgeonMachineRequirementsInnerVisitor<Device, INullableValue<bool>> innerVisitor = new SurgeonMachineRequirementsInnerVisitor<Device, INullableValue<bool>>(
+            ISurgeonMachineRequirementsInnerVisitor<Device, INullableValue<bool>> innerVisitor = this.SurgeonMachineRequirementsInnerVisitorFactory.Create<Device, INullableValue<bool>>(
                 this.RedBlackTreeFactory,
                 this.ζParameterElementFactory,
                 sIndexElement,

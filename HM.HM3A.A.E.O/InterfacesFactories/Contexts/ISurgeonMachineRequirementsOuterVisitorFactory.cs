@@ -12,6 +12,7 @@
     public interface ISurgeonMachineRequirementsOuterVisitorFactory
     {
         ISurgeonMachineRequirementsOuterVisitor<TKey, TValue> Create<TKey, TValue>(
+            ISurgeonMachineRequirementsInnerVisitorFactory surgeonMachineRequirementsInnerVisitorFactory,
             IRedBlackTreeFactory redBlackTreeFactory,
             IζParameterElementFactory ζParameterElementFactory,
             Im m,

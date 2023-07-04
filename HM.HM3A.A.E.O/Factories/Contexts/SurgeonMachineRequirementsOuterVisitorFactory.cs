@@ -24,6 +24,7 @@
         }
 
         public ISurgeonMachineRequirementsOuterVisitor<TKey, TValue> Create<TKey, TValue>(
+            ISurgeonMachineRequirementsInnerVisitorFactory surgeonMachineRequirementsInnerVisitorFactory,
             IRedBlackTreeFactory redBlackTreeFactory,
             IζParameterElementFactory ζParameterElementFactory,
             Im m,
@@ -36,6 +37,7 @@
             try
             {
                 instance = new SurgeonMachineRequirementsOuterVisitor<TKey, TValue>(
+                    surgeonMachineRequirementsInnerVisitorFactory,
                     redBlackTreeFactory,
                     ζParameterElementFactory,
                     m,

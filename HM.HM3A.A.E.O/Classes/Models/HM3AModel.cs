@@ -187,6 +187,7 @@
 
             // ζ(s, m)
             ISurgeonMachineRequirementsOuterVisitor<Organization, RedBlackTree<Device, INullableValue<bool>>> surgeonMachineRequirementsOuterVisitor = contextsAbstractFactory.CreateSurgeonMachineRequirementsOuterVisitorFactory().Create<Organization, RedBlackTree<Device, INullableValue<bool>>>(
+                contextsAbstractFactory.CreateSurgeonMachineRequirementsInnerVisitorFactory(),
                 dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
                 parameterElementsAbstractFactory.CreateζParameterElementFactory(),
                 this.m,
