@@ -199,7 +199,7 @@
                 surgeonMachineRequirementsOuterVisitor.RedBlackTree);
 
             // ψ(t)
-            IDayAvailabilitiesVisitor<FhirDateTime, INullableValue<bool>> dayAvailabilitiesVisitor = new HM.HM3A.A.E.O.Visitors.Contexts.DayAvailabilitiesVisitor<FhirDateTime, INullableValue<bool>>(
+            IDayAvailabilitiesVisitor<FhirDateTime, INullableValue<bool>> dayAvailabilitiesVisitor = contextsAbstractFactory.CreateDayAvailabilitiesVisitorFactory().Create<FhirDateTime, INullableValue<bool>>(
                 dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
                 parameterElementsAbstractFactory.CreateψParameterElementFactory(),
                 this.t);
