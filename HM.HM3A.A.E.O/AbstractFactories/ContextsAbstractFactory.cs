@@ -69,5 +69,23 @@
 
             return factory;
         }
+
+        public IMachineCostsVisitorFactory CreateMachineCostsVisitorFactory()
+        {
+            IMachineCostsVisitorFactory factory = null;
+
+            try
+            {
+                factory = new MachineCostsVisitorFactory();
+            }
+            catch (Exception exception)
+            {
+                this.Log.Error(
+                    exception.Message,
+                    exception);
+            }
+
+            return factory;
+        }
     }
 }
