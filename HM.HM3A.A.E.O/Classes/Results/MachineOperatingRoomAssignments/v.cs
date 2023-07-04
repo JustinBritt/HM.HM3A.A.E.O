@@ -14,6 +14,7 @@
     using HM.HM3A.A.E.O.InterfacesFactories.Comparers;
     using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.Hl7.Fhir.R4.Model;
     using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
+    using HM.HM3A.A.E.O.InterfacesFactories.Results.MachineOperatingRoomAssignments;
     using HM.HM3A.A.E.O.InterfacesVisitors.Results.MachineOperatingRoomAssignments;
 
     internal sealed class v : Iv
@@ -33,12 +34,14 @@
             ILocationComparerFactory locationComparerFactory,
             INullableValueFactory nullableValueFactory,
             IRedBlackTreeFactory redBlackTreeFactory,
+            IvInnerVisitorFactory vInnerVisitorFactory,
             Im m,
             Ir r)
         {
             IvOuterVisitor<ImIndexElement, RedBlackTree<IrIndexElement, IvResultElement>> vOuterVisitor = new HM.HM3A.A.E.O.Visitors.Results.MachineOperatingRoomAssignments.vOuterVisitor<ImIndexElement, RedBlackTree<IrIndexElement, IvResultElement>>(
                 nullableValueFactory,
                 redBlackTreeFactory,
+                vInnerVisitorFactory,
                 deviceComparerFactory.Create(),
                 locationComparerFactory.Create());
 

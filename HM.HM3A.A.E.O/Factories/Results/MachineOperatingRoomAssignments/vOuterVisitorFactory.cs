@@ -26,6 +26,7 @@
         public IvOuterVisitor<TKey, TValue> Create<TKey, TValue>(
             INullableValueFactory nullableValueFactory,
             IRedBlackTreeFactory redBlackTreeFactory,
+            IvInnerVisitorFactory vInnerVisitorFactory,
             IDeviceComparer deviceComparer,
             ILocationComparer locationComparer)
             where TKey : ImIndexElement
@@ -38,6 +39,7 @@
                 instance = new vOuterVisitor<TKey, TValue>(
                     nullableValueFactory,
                     redBlackTreeFactory,
+                    vInnerVisitorFactory,
                     deviceComparer,
                     locationComparer);
             }

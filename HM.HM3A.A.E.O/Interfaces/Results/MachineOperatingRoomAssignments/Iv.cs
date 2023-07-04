@@ -10,6 +10,7 @@
     using HM.HM3A.A.E.O.InterfacesFactories.Comparers;
     using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.Hl7.Fhir.R4.Model;
     using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
+    using HM.HM3A.A.E.O.InterfacesFactories.Results.MachineOperatingRoomAssignments;
 
     public interface Iv
     {
@@ -20,6 +21,7 @@
             ILocationComparerFactory locationComparerFactory,
             INullableValueFactory nullableValueFactory,
             IRedBlackTreeFactory redBlackTreeFactory,
+            IvInnerVisitorFactory vInnerVisitorFactory,
             Im m,
             Ir r);
     }

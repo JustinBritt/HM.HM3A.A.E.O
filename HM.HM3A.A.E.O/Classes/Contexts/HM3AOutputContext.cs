@@ -72,6 +72,7 @@
                 comparersAbstractFactory.CreateLocationComparerFactory(),
                 dependenciesAbstractFactory.CreateNullableValueFactory(),
                 dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
+                resultsAbstractFactory.CreatevInnerVisitorFactory(),
                 HM3AModel.m,
                 HM3AModel.r);
 
