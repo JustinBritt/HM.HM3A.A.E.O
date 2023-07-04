@@ -286,6 +286,24 @@
             return factory;
         }
 
+        public IyInnerVisitorFactory CreateyInnerVisitorFactory()
+        {
+            IyInnerVisitorFactory factory = null;
+
+            try
+            {
+                factory = new yInnerVisitorFactory();
+            }
+            catch (Exception exception)
+            {
+                this.Log.Error(
+                    exception.Message,
+                    exception);
+            }
+
+            return factory;
+        }
+
         public IyOuterVisitorFactory CreateyOuterVisitorFactory()
         {
             IyOuterVisitorFactory factory = null;

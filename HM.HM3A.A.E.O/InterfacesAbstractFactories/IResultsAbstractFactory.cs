@@ -41,6 +41,8 @@
 
         IyFactory CreateyFactory();
 
+        IyInnerVisitorFactory CreateyInnerVisitorFactory();
+
         IyOuterVisitorFactory CreateyOuterVisitorFactory();
     }
 }
