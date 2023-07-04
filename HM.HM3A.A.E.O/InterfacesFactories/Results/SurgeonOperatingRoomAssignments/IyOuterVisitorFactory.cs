@@ -14,6 +14,7 @@
         IyOuterVisitor<TKey, TValue> Create<TKey, TValue>(
             INullableValueFactory nullableValueFactory,
             IRedBlackTreeFactory redBlackTreeFactory,
+            IyInnerVisitorFactory yInnerVisitorFactory,
             ILocationComparer locationComparer,
             IOrganizationComparer organizationComparer)
             where TKey : IsIndexElement

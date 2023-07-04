@@ -14,6 +14,7 @@
     using HM.HM3A.A.E.O.Interfaces.ResultElements.SurgeonOperatingRoomAssignments;
     using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.Hl7.Fhir.R4.Model;
     using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
+    using HM.HM3A.A.E.O.InterfacesFactories.Results.SurgeonOperatingRoomAssignments;
     using HM.HM3A.A.E.O.InterfacesVisitors.Results.SurgeonOperatingRoomAssignments;
 
     internal sealed class yOuterVisitor<TKey, TValue> : IyOuterVisitor<TKey, TValue>
@@ -25,12 +26,15 @@
         public yOuterVisitor(
             INullableValueFactory nullableValueFactory,
             IRedBlackTreeFactory redBlackTreeFactory,
+            IyInnerVisitorFactory yInnerVisitorFactory,
             ILocationComparer locationComparer,
             IOrganizationComparer organizationComparer)
         {
             this.NullableValueFactory = nullableValueFactory;
 
             this.RedBlackTreeFactory = redBlackTreeFactory;
+
+            this.yInnerVisitorFactory = yInnerVisitorFactory;
 
             this.LocationComparer = locationComparer;
 
@@ -41,6 +45,8 @@
         private INullableValueFactory NullableValueFactory { get; }
 
         private IRedBlackTreeFactory RedBlackTreeFactory { get; }
+
+        private IyInnerVisitorFactory yInnerVisitorFactory { get; }
 
         private ILocationComparer LocationComparer { get; }
 
@@ -55,7 +61,7 @@
 
             RedBlackTree<IrIndexElement, IyResultElement> value = obj.Value;
 
-            IyInnerVisitor<IrIndexElement, IyResultElement> innerVisitor = new yInnerVisitor<IrIndexElement, IyResultElement>(
+            IyInnerVisitor<IrIndexElement, IyResultElement> innerVisitor = this.yInnerVisitorFactory.Create<IrIndexElement, IyResultElement>(
                 this.NullableValueFactory,
                 this.RedBlackTreeFactory,
                 this.LocationComparer);

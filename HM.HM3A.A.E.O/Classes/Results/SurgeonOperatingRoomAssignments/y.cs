@@ -13,6 +13,7 @@
     using HM.HM3A.A.E.O.InterfacesFactories.Comparers;
     using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.Hl7.Fhir.R4.Model;
     using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
+    using HM.HM3A.A.E.O.InterfacesFactories.Results.SurgeonOperatingRoomAssignments;
     using HM.HM3A.A.E.O.InterfacesVisitors.Results.SurgeonOperatingRoomAssignments;
 
     internal sealed class y : Iy
@@ -31,11 +32,13 @@
             ILocationComparerFactory locationComparerFactory,
             IOrganizationComparerFactory organizationComparerFactory,
             INullableValueFactory nullableValueFactory,
-            IRedBlackTreeFactory redBlackTreeFactory)
+            IRedBlackTreeFactory redBlackTreeFactory,
+            IyInnerVisitorFactory yInnerVisitorFactory)
         {
             IyOuterVisitor<IsIndexElement, RedBlackTree<IrIndexElement, IyResultElement>> yOuterVisitor = new HM.HM3A.A.E.O.Visitors.Results.SurgeonOperatingRoomAssignments.yOuterVisitor<IsIndexElement, RedBlackTree<IrIndexElement, IyResultElement>>(
                 nullableValueFactory,
                 redBlackTreeFactory,
+                yInnerVisitorFactory,
                 locationComparerFactory.Create(),
                 organizationComparerFactory.Create());
 
