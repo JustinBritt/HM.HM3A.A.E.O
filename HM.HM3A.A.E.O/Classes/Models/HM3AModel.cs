@@ -160,7 +160,7 @@
                 surgeonNumberAssignedTimeBlocksVisitor.RedBlackTree);
 
             // C(m)
-            IMachineCostsVisitor<Device, Money> machineCostsVisitor = new HM.HM3A.A.E.O.Visitors.Contexts.MachineCostsVisitor<Device, Money>(
+            IMachineCostsVisitor<Device, Money> machineCostsVisitor = contextsAbstractFactory.CreateMachineCostsVisitorFactory().Create<Device, Money>(
                 dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
                 parameterElementsAbstractFactory.CreateCParameterElementFactory(),
                 this.m);
