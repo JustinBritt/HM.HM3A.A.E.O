@@ -89,7 +89,8 @@
                 comparersAbstractFactory.CreateOrganizationComparerFactory(),
                 dependenciesAbstractFactory.CreateNullableValueFactory(),
                 dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
-                resultsAbstractFactory.CreatewInnerVisitorFactory());           
+                resultsAbstractFactory.CreatewInnerVisitorFactory(),
+                resultsAbstractFactory.CreatewOuterVisitorFactory());           
 
             // y(s, r)
             Iy y = HM3AModel.y.GetElementsAt(

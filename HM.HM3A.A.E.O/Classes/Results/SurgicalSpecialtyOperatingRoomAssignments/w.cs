@@ -33,9 +33,10 @@
             IOrganizationComparerFactory organizationComparerFactory,
             INullableValueFactory nullableValueFactory,
             IRedBlackTreeFactory redBlackTreeFactory,
-            IwInnerVisitorFactory wInnerVisitorFactory)
+            IwInnerVisitorFactory wInnerVisitorFactory,
+            IwOuterVisitorFactory wOuterVisitorFactory)
         {
-            IwOuterVisitor<IjIndexElement, RedBlackTree<IrIndexElement, IwResultElement>> wOuterVisitor = new HM.HM3A.A.E.O.Visitors.Results.SurgicalSpecialtyOperatingRoomAssignments.wOuterVisitor<IjIndexElement, RedBlackTree<IrIndexElement, IwResultElement>>(
+            IwOuterVisitor<IjIndexElement, RedBlackTree<IrIndexElement, IwResultElement>> wOuterVisitor = wOuterVisitorFactory.Create<IjIndexElement, RedBlackTree<IrIndexElement, IwResultElement>>(
                 nullableValueFactory,
                 redBlackTreeFactory,
                 wInnerVisitorFactory,
