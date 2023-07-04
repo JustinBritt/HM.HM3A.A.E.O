@@ -7,6 +7,7 @@
 
     using Hl7.Fhir.Model;
 
+    using NGenerics.DataStructures.Trees;
     using NGenerics.Patterns.Visitor;
 
     using OPTANO.Modeling.Optimization;
@@ -22,7 +23,6 @@
     using HM.HM3A.A.E.O.Interfaces.Parameters.SurgicalSpecialties;
     using HM.HM3A.A.E.O.Interfaces.Variables;
     using HM.HM3A.A.E.O.InterfacesVisitors.Contexts;
-    using NGenerics.DataStructures.Trees;
 
     internal abstract class HM3AModel
     {
