@@ -59,6 +59,7 @@
 
             // m
             this.m = indicesAbstractFactory.CreatemFactory().Create(
+                dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
                 comparersAbstractFactory.CreateDeviceComparerFactory().Create(),
                 this.Context.Machines
                 .Entry
