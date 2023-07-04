@@ -186,7 +186,7 @@
                 surgicalSpecialtiesVisitor.Value.ToImmutableList());
 
             // ζ(s, m)
-            ISurgeonMachineRequirementsOuterVisitor<Organization, RedBlackTree<Device, INullableValue<bool>>> surgeonMachineRequirementsOuterVisitor = new HM.HM3A.A.E.O.Visitors.Contexts.SurgeonMachineRequirementsOuterVisitor<Organization, RedBlackTree<Device, INullableValue<bool>>>(
+            ISurgeonMachineRequirementsOuterVisitor<Organization, RedBlackTree<Device, INullableValue<bool>>> surgeonMachineRequirementsOuterVisitor = contextsAbstractFactory.CreateSurgeonMachineRequirementsOuterVisitorFactory().Create<Organization, RedBlackTree<Device, INullableValue<bool>>>(
                 dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
                 parameterElementsAbstractFactory.CreateζParameterElementFactory(),
                 this.m,
