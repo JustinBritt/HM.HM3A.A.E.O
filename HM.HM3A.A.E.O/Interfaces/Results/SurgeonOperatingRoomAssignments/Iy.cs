@@ -20,6 +20,7 @@
             IOrganizationComparerFactory organizationComparerFactory,
             INullableValueFactory nullableValueFactory,
             IRedBlackTreeFactory redBlackTreeFactory,
-            IyInnerVisitorFactory yInnerVisitorFactory);
+            IyInnerVisitorFactory yInnerVisitorFactory,
+            IyOuterVisitorFactory yOuterVisitorFactory);
     }
 }

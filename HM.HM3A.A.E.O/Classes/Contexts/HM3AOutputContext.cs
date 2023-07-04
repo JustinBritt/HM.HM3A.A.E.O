@@ -106,7 +106,8 @@
                 comparersAbstractFactory.CreateOrganizationComparerFactory(),
                 dependenciesAbstractFactory.CreateNullableValueFactory(),
                 dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
-                resultsAbstractFactory.CreateyInnerVisitorFactory());
+                resultsAbstractFactory.CreateyInnerVisitorFactory(),
+                resultsAbstractFactory.CreateyOuterVisitorFactory());
 
             // SurgeonNumberAssignedOperatingRooms
             this.SurgeonNumberAssignedOperatingRooms = calculationsAbstractFactory.CreateSurgeonNumberAssignedOperatingRoomsCalculationFactory().Create().Calculate(
