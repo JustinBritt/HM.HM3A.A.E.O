@@ -35,6 +35,8 @@
 
         IwFactory CreatewFactory();
 
+        IwInnerVisitorFactory CreatewInnerVisitorFactory();
+
         IwOuterVisitorFactory CreatewOuterVisitorFactory();
 
         IyFactory CreateyFactory();

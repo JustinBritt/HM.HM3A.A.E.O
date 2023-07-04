@@ -232,6 +232,24 @@
             return factory;
         }
 
+        public IwInnerVisitorFactory CreatewInnerVisitorFactory()
+        {
+            IwInnerVisitorFactory factory = null;
+
+            try
+            {
+                factory = new wInnerVisitorFactory();
+            }
+            catch (Exception exception)
+            {
+                this.Log.Error(
+                    exception.Message,
+                    exception);
+            }
+
+            return factory;
+        }
+
         public IwOuterVisitorFactory CreatewOuterVisitorFactory()
         {
             IwOuterVisitorFactory factory = null;
