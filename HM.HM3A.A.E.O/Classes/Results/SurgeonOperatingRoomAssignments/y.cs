@@ -11,6 +11,7 @@
     using HM.HM3A.A.E.O.Interfaces.ResultElements.SurgeonOperatingRoomAssignments;
     using HM.HM3A.A.E.O.Interfaces.Results.SurgeonOperatingRoomAssignments;
     using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.Hl7.Fhir.R4.Model;
+    using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
     using HM.HM3A.A.E.O.InterfacesVisitors.Results.SurgeonOperatingRoomAssignments;
 
     internal sealed class y : Iy
@@ -26,10 +27,12 @@
         public RedBlackTree<IsIndexElement, RedBlackTree<IrIndexElement, IyResultElement>> Value { get; }
 
         public RedBlackTree<Organization, RedBlackTree<Location, INullableValue<bool>>> GetValueForOutputContext(
-            INullableValueFactory nullableValueFactory)
+            INullableValueFactory nullableValueFactory,
+            IRedBlackTreeFactory redBlackTreeFactory)
         {
             IyOuterVisitor<IsIndexElement, RedBlackTree<IrIndexElement, IyResultElement>> yOuterVisitor = new HM.HM3A.A.E.O.Visitors.Results.SurgeonOperatingRoomAssignments.yOuterVisitor<IsIndexElement, RedBlackTree<IrIndexElement, IyResultElement>>(
                 nullableValueFactory,
+                redBlackTreeFactory,
                 new HM.HM3A.A.E.O.Classes.Comparers.LocationComparer(),
                 new HM.HM3A.A.E.O.Classes.Comparers.OrganizationComparer());
 
