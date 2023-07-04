@@ -14,6 +14,8 @@
 
         IPlanningHorizonVisitorFactory CreatePlanningHorizonVisitorFactory();
 
+        ISurgeonMachineRequirementsInnerVisitorFactory CreateSurgeonMachineRequirementsInnerVisitorFactory();
+
         ISurgeonMachineRequirementsOuterVisitorFactory CreateSurgeonMachineRequirementsOuterVisitorFactory();
 
         ISurgeonNumberAssignedTimeBlocksVisitorFactory CreateSurgeonNumberAssignedTimeBlocksVisitorFactory();

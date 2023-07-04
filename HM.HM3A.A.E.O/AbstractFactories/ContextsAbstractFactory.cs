@@ -106,6 +106,24 @@
             return factory;
         }
 
+        public ISurgeonMachineRequirementsInnerVisitorFactory CreateSurgeonMachineRequirementsInnerVisitorFactory()
+        {
+            ISurgeonMachineRequirementsInnerVisitorFactory factory = null;
+
+            try
+            {
+                factory = new SurgeonMachineRequirementsInnerVisitorFactory();
+            }
+            catch (Exception exception)
+            {
+                this.Log.Error(
+                    exception.Message,
+                    exception);
+            }
+
+            return factory;
+        }
+
         public ISurgeonMachineRequirementsOuterVisitorFactory CreateSurgeonMachineRequirementsOuterVisitorFactory()
         {
             ISurgeonMachineRequirementsOuterVisitorFactory factory = null;
