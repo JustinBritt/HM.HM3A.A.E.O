@@ -178,6 +178,24 @@
             return factory;
         }
 
+        public IvOuterVisitorFactory CreatevOuterVisitorFactory()
+        {
+            IvOuterVisitorFactory factory = null;
+
+            try
+            {
+                factory = new vOuterVisitorFactory();
+            }
+            catch (Exception exception)
+            {
+                this.Log.Error(
+                    exception.Message,
+                    exception);
+            }
+
+            return factory;
+        }
+
         public IwFactory CreatewFactory()
         {
             IwFactory factory = null;
