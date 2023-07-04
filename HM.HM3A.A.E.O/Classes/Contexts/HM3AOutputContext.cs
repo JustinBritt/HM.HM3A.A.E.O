@@ -84,6 +84,7 @@
 
             // y(s, r)
             Iy y = HM3AModel.y.GetElementsAt(
+                dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
                 resultElementsAbstractFactory.CreateyResultElementFactory(),
                 resultsAbstractFactory.CreateyFactory(),
                 HM3AModel.r,
