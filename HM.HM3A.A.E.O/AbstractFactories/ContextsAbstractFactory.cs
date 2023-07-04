@@ -141,5 +141,23 @@
 
             return factory;
         }
+
+        public ISurgicalSpecialtyNumberAssignedTimeBlocksVisitorFactory CreateSurgicalSpecialtyNumberAssignedTimeBlocksVisitorFactory()
+        {
+            ISurgicalSpecialtyNumberAssignedTimeBlocksVisitorFactory factory = null;
+
+            try
+            {
+                factory = new SurgicalSpecialtyNumberAssignedTimeBlocksVisitorFactory();
+            }
+            catch (Exception exception)
+            {
+                this.Log.Error(
+                    exception.Message,
+                    exception);
+            }
+
+            return factory;
+        }
     }
 }

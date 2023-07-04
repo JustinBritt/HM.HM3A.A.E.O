@@ -17,5 +17,7 @@
         ISurgeonNumberAssignedTimeBlocksVisitorFactory CreateSurgeonNumberAssignedTimeBlocksVisitorFactory();
 
         ISurgicalSpecialtiesVisitorFactory CreateSurgicalSpecialtiesVisitorFactory();
+
+        ISurgicalSpecialtyNumberAssignedTimeBlocksVisitorFactory CreateSurgicalSpecialtyNumberAssignedTimeBlocksVisitorFactory();
     }
 }
