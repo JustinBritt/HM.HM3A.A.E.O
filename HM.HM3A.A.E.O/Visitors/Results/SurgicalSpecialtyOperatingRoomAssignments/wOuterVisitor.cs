@@ -14,6 +14,7 @@
     using HM.HM3A.A.E.O.Interfaces.ResultElements.SurgicalSpecialtyOperatingRoomAssignments;
     using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.Hl7.Fhir.R4.Model;
     using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
+    using HM.HM3A.A.E.O.InterfacesFactories.Results.SurgicalSpecialtyOperatingRoomAssignments;
     using HM.HM3A.A.E.O.InterfacesVisitors.Results.SurgicalSpecialtyOperatingRoomAssignments;
 
     internal sealed class wOuterVisitor<TKey, TValue> : IwOuterVisitor<TKey, TValue>
@@ -25,12 +26,15 @@
         public wOuterVisitor(
             INullableValueFactory nullableValueFactory,
             IRedBlackTreeFactory redBlackTreeFactory,
+            IwInnerVisitorFactory wInnerVisitorFactory,
             ILocationComparer locationComparer,
             IOrganizationComparer organizationComparer)
         {
             this.NullableValueFactory = nullableValueFactory;
 
             this.RedBlackTreeFactory = redBlackTreeFactory;
+
+            this.wInnerVisitorFactory = wInnerVisitorFactory;
 
             this.LocationComparer = locationComparer;
 
@@ -41,6 +45,8 @@
         private INullableValueFactory NullableValueFactory { get; }
 
         private IRedBlackTreeFactory RedBlackTreeFactory { get; }
+
+        private IwInnerVisitorFactory wInnerVisitorFactory { get; }
 
         private ILocationComparer LocationComparer { get; }
 
@@ -55,7 +61,7 @@
 
             RedBlackTree<IrIndexElement, IwResultElement> value = obj.Value;
 
-            IwInnerVisitor<IrIndexElement, IwResultElement> innerVisitor = new wInnerVisitor<IrIndexElement, IwResultElement>(
+            IwInnerVisitor<IrIndexElement, IwResultElement> innerVisitor = this.wInnerVisitorFactory.Create<IrIndexElement, IwResultElement>(
                 this.NullableValueFactory,
                 this.RedBlackTreeFactory,
                 this.LocationComparer);
