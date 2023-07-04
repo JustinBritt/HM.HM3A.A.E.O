@@ -61,6 +61,7 @@
 
             // v(m, r)
             this.MachineOperatingRoomAssignments = HM3AModel.v.GetElementsAt(
+                dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
                 resultElementsAbstractFactory.CreatevResultElementFactory(),
                 resultsAbstractFactory.CreatevFactory(),
                 HM3AModel.m,
