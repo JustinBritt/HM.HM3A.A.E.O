@@ -4,6 +4,7 @@
 
     using HM.HM3A.A.E.O.Interfaces.IndexElements;
     using HM.HM3A.A.E.O.Interfaces.Indices;
+    using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
     using HM.HM3A.A.E.O.InterfacesFactories.ResultElements.SurgicalSpecialtyOperatingRoomAssignments;
     using HM.HM3A.A.E.O.InterfacesFactories.Results.SurgicalSpecialtyOperatingRoomAssignments;
 
@@ -16,6 +17,7 @@
             IrIndexElement rIndexElement);
 
         Interfaces.Results.SurgicalSpecialtyOperatingRoomAssignments.Iw GetElementsAt(
+            IRedBlackTreeFactory redBlackTreeFactory,
             IwResultElementFactory wResultElementFactory,
             IwFactory wFactory,
             Ij j,

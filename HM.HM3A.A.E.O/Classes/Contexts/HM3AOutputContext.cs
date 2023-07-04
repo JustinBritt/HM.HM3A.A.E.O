@@ -74,6 +74,7 @@
 
             // w(j, r)
             this.SurgicalSpecialtyOperatingRoomAssignments = HM3AModel.w.GetElementsAt(
+                dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
                 resultElementsAbstractFactory.CreatewResultElementFactory(),
                 resultsAbstractFactory.CreatewFactory(),
                 HM3AModel.j,
