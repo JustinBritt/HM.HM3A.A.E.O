@@ -9,5 +9,7 @@
         IHM3AInputContextFactory CreateHM3AInputContextFactory();
 
         IHM3AOutputContextFactory CreateHM3AOutputContextFactory();
+
+        IMachineCostsVisitorFactory CreateMachineCostsVisitorFactory();
     }
 }
