@@ -34,7 +34,7 @@
 
             this.LocationComparer = locationComparer;
 
-            this.RedBlackTree = new RedBlackTree<Organization, RedBlackTree<Location, INullableValue<bool>>>(
+            this.RedBlackTree = redBlackTreeFactory.Create<Organization, RedBlackTree<Location, INullableValue<bool>>>(
                 organizationComparer);
         }
 
