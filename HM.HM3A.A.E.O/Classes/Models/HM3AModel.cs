@@ -153,6 +153,7 @@
 
             // C(m)
             IMachineCostsVisitor<Device, Money> machineCostsVisitor = new HM.HM3A.A.E.O.Visitors.Contexts.MachineCostsVisitor<Device, Money>(
+                dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
                 parameterElementsAbstractFactory.CreateCParameterElementFactory(),
                 this.m);
 
