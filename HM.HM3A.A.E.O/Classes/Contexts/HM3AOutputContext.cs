@@ -83,6 +83,8 @@
                 HM3AModel.j,
                 HM3AModel.r)
                 .GetValueForOutputContext(
+                comparersAbstractFactory.CreateLocationComparerFactory(),
+                comparersAbstractFactory.CreateOrganizationComparerFactory(),
                 dependenciesAbstractFactory.CreateNullableValueFactory(),
                 dependenciesAbstractFactory.CreateRedBlackTreeFactory());           
 
