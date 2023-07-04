@@ -148,7 +148,7 @@
                 surgicalSpecialtyNumberAssignedTimeBlocksVisitor.RedBlackTree);
 
             // B(s)
-            ISurgeonNumberAssignedTimeBlocksVisitor<Organization, INullableValue<int>> surgeonNumberAssignedTimeBlocksVisitor = new HM.HM3A.A.E.O.Visitors.Contexts.SurgeonNumberAssignedTimeBlocksVisitor<Organization, INullableValue<int>>(
+            ISurgeonNumberAssignedTimeBlocksVisitor<Organization, INullableValue<int>> surgeonNumberAssignedTimeBlocksVisitor = contextsAbstractFactory.CreateSurgeonNumberAssignedTimeBlocksVisitorFactory().Create<Organization, INullableValue<int>>(
                 dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
                 parameterElementsAbstractFactory.CreateBsParameterElementFactory(),
                 this.s);
