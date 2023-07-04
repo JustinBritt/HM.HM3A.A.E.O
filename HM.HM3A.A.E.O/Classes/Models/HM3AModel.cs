@@ -69,6 +69,7 @@
 
             // r
             this.r = indicesAbstractFactory.CreaterFactory().Create(
+                dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
                 comparersAbstractFactory.CreateLocationComparerFactory().Create(),
                 this.Context.OperatingRooms
                 .Entry
