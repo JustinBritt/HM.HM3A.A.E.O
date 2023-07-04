@@ -22,6 +22,7 @@
             INullableValueFactory nullableValueFactory,
             IRedBlackTreeFactory redBlackTreeFactory,
             IvInnerVisitorFactory vInnerVisitorFactory,
+            IvOuterVisitorFactory vOuterVisitorFactory,
             Im m,
             Ir r);
     }

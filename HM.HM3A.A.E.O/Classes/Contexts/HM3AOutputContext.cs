@@ -73,6 +73,7 @@
                 dependenciesAbstractFactory.CreateNullableValueFactory(),
                 dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
                 resultsAbstractFactory.CreatevInnerVisitorFactory(),
+                resultsAbstractFactory.CreatevOuterVisitorFactory(),
                 HM3AModel.m,
                 HM3AModel.r);
 

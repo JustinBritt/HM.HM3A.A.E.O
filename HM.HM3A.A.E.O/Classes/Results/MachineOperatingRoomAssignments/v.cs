@@ -35,10 +35,11 @@
             INullableValueFactory nullableValueFactory,
             IRedBlackTreeFactory redBlackTreeFactory,
             IvInnerVisitorFactory vInnerVisitorFactory,
+            IvOuterVisitorFactory vOuterVisitorFactory,
             Im m,
             Ir r)
         {
-            IvOuterVisitor<ImIndexElement, RedBlackTree<IrIndexElement, IvResultElement>> vOuterVisitor = new HM.HM3A.A.E.O.Visitors.Results.MachineOperatingRoomAssignments.vOuterVisitor<ImIndexElement, RedBlackTree<IrIndexElement, IvResultElement>>(
+            IvOuterVisitor<ImIndexElement, RedBlackTree<IrIndexElement, IvResultElement>> vOuterVisitor = vOuterVisitorFactory.Create<ImIndexElement, RedBlackTree<IrIndexElement, IvResultElement>>(
                 nullableValueFactory,
                 redBlackTreeFactory,
                 vInnerVisitorFactory,
