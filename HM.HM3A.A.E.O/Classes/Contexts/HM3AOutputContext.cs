@@ -24,6 +24,7 @@
 
         public HM3AOutputContext(
             ICalculationsAbstractFactory calculationsAbstractFactory,
+            IComparersAbstractFactory comparersAbstractFactory,
             IDependenciesAbstractFactory dependenciesAbstractFactory,
             IResultElementsAbstractFactory resultElementsAbstractFactory,
             IResultsAbstractFactory resultsAbstractFactory,
@@ -67,6 +68,8 @@
                 HM3AModel.m,
                 HM3AModel.r)
                 .GetValueForOutputContext(
+                comparersAbstractFactory.CreateDeviceComparerFactory(),
+                comparersAbstractFactory.CreateLocationComparerFactory(),
                 dependenciesAbstractFactory.CreateNullableValueFactory(),
                 dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
                 HM3AModel.m,

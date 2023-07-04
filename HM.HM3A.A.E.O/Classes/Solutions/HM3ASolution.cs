@@ -79,6 +79,7 @@
 
                             HM3AOutputContext = contextsAbstractFactory.CreateHM3AOutputContextFactory().Create(
                                 calculationsAbstractFactory,
+                                comparersAbstractFactory,
                                 dependenciesAbstractFactory,
                                 resultElementsAbstractFactory,
                                 resultsAbstractFactory,

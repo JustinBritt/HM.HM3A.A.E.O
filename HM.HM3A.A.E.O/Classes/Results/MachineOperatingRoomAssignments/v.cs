@@ -11,6 +11,7 @@
     using HM.HM3A.A.E.O.Interfaces.Indices;
     using HM.HM3A.A.E.O.Interfaces.ResultElements.MachineOperatingRoomAssignments;
     using HM.HM3A.A.E.O.Interfaces.Results.MachineOperatingRoomAssignments;
+    using HM.HM3A.A.E.O.InterfacesFactories.Comparers;
     using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.Hl7.Fhir.R4.Model;
     using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
     using HM.HM3A.A.E.O.InterfacesVisitors.Results.MachineOperatingRoomAssignments;
@@ -28,6 +29,8 @@
         public RedBlackTree<ImIndexElement, RedBlackTree<IrIndexElement, IvResultElement>> Value { get; }
 
         public RedBlackTree<Device, RedBlackTree<Location, INullableValue<bool>>> GetValueForOutputContext(
+            IDeviceComparerFactory deviceComparerFactory,
+            ILocationComparerFactory locationComparerFactory,
             INullableValueFactory nullableValueFactory,
             IRedBlackTreeFactory redBlackTreeFactory,
             Im m,
@@ -36,8 +39,8 @@
             IvOuterVisitor<ImIndexElement, RedBlackTree<IrIndexElement, IvResultElement>> vOuterVisitor = new HM.HM3A.A.E.O.Visitors.Results.MachineOperatingRoomAssignments.vOuterVisitor<ImIndexElement, RedBlackTree<IrIndexElement, IvResultElement>>(
                 nullableValueFactory,
                 redBlackTreeFactory,
-                new HM.HM3A.A.E.O.Classes.Comparers.DeviceComparer(),
-                new HM.HM3A.A.E.O.Classes.Comparers.LocationComparer());
+                deviceComparerFactory.Create(),
+                locationComparerFactory.Create());
 
             this.Value.AcceptVisitor(
                 vOuterVisitor);
