@@ -13,5 +13,7 @@
         IMachineCostsVisitorFactory CreateMachineCostsVisitorFactory();
 
         IPlanningHorizonVisitorFactory CreatePlanningHorizonVisitorFactory();
+
+        ISurgeonNumberAssignedTimeBlocksVisitorFactory CreateSurgeonNumberAssignedTimeBlocksVisitorFactory();
     }
 }
