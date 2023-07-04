@@ -13,6 +13,7 @@
     using HM.HM3A.A.E.O.Interfaces.Comparers;
     using HM.HM3A.A.E.O.Interfaces.IndexElements;
     using HM.HM3A.A.E.O.Interfaces.Indices;
+    using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
     using HM.HM3A.A.E.O.InterfacesFactories.Indices;
 
     internal sealed class sFactory : IsFactory
@@ -24,6 +25,7 @@
         }
 
         public Is Create(
+            IRedBlackTreeFactory redBlackTreeFactory,
             IOrganizationComparer organizationComparer,
             ImmutableList<IsIndexElement> value)
         {
@@ -33,6 +35,7 @@
             {
                 index = new s(
                     this.CreateRedBlackTree(
+                        redBlackTreeFactory,
                         organizationComparer,
                         value));
             }
@@ -47,10 +50,11 @@
         }
 
         private RedBlackTree<Organization, IsIndexElement> CreateRedBlackTree(
+            IRedBlackTreeFactory redBlackTreeFactory,
             IOrganizationComparer organizationComparer,
             ImmutableList<IsIndexElement> value)
         {
-            RedBlackTree<Organization, IsIndexElement> redBlackTree = new RedBlackTree<Organization, IsIndexElement>(
+            RedBlackTree<Organization, IsIndexElement> redBlackTree = redBlackTreeFactory.Create<Organization, IsIndexElement>(
                 organizationComparer);
 
             foreach (IsIndexElement sIndexElement in value)

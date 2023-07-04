@@ -79,6 +79,7 @@
 
             // s
             this.s = indicesAbstractFactory.CreatesFactory().Create(
+                dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
                 comparersAbstractFactory.CreateOrganizationComparerFactory().Create(),
                 this.Context.Surgeons
                 .Entry
