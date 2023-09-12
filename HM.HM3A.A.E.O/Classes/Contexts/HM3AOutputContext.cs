@@ -1,7 +1,6 @@
 ﻿namespace HM.HM3A.A.E.O.Classes.Contexts
 {
     using System;
-    using System.Collections.Immutable;
     using System.Linq;
 
     using log4net;
@@ -142,7 +141,7 @@
 
         public RedBlackTree<Organization, INullableValue<int>> SurgeonNumberAssignedOperatingRooms { get; }
 
-        public ImmutableList<Tuple<Organization, INullableValue<int>>> SurgicalSpecialtyNumberAssignedOperatingRooms { get; }
+        public RedBlackTree<Organization, INullableValue<int>> SurgicalSpecialtyNumberAssignedOperatingRooms { get; }
 
         public RedBlackTree<Device, RedBlackTree<Location, INullableValue<bool>>> MachineOperatingRoomAssignments { get; }
 
