@@ -8,6 +8,8 @@
 
     using Hl7.Fhir.Model;
 
+    using NGenerics.DataStructures.Trees;
+
     using HM.HM3A.A.E.O.Interfaces.ResultElements.SurgeonNumberAssignedOperatingRooms;
     using HM.HM3A.A.E.O.Interfaces.Results.SurgeonNumberAssignedOperatingRooms;
     using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.Hl7.Fhir.R4.Model;
@@ -24,16 +26,21 @@
 
         public ImmutableList<ISurgeonNumberAssignedOperatingRoomsResultElement> Value { get; }
 
-        public ImmutableList<Tuple<Organization, INullableValue<int>>> GetValueForOutputContext(
+        public RedBlackTree<Organization, INullableValue<int>> GetValueForOutputContext(
             INullableValueFactory nullableValueFactory)
         {
-            return this.Value
-                .Select(
-                i => Tuple.Create(
-                    i.sIndexElement.Value,
+            RedBlackTree<Organization, INullableValue<int>> redBlackTree = new(
+                new HM.HM3A.A.E.O.Classes.Comparers.OrganizationComparer());
+
+            foreach (ISurgeonNumberAssignedOperatingRoomsResultElement surgeonNumberAssignedOperatingRoomsResultElement in this.Value)
+            {
+                redBlackTree.Add(
+                    surgeonNumberAssignedOperatingRoomsResultElement.sIndexElement.Value,
                     nullableValueFactory.Create<int>(
-                        i.Value)))
-                .ToImmutableList();
+                        surgeonNumberAssignedOperatingRoomsResultElement.Value));
+            }
+
+            return redBlackTree;
         }
     }
 }
