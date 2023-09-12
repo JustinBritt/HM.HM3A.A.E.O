@@ -1,8 +1,6 @@
 ﻿namespace HM.HM3A.A.E.O.Classes.Results.SurgeonNumberAssignedOperatingRooms
 {
-    using System;
     using System.Collections.Immutable;
-    using System.Linq;
 
     using log4net;
 
