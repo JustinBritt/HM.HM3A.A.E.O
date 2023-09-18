@@ -11,6 +11,7 @@
     using HM.HM3A.A.E.O.Interfaces.Results.SurgeonNumberAssignedOperatingRooms;
     using HM.HM3A.A.E.O.InterfacesFactories.Comparers;
     using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.Hl7.Fhir.R4.Model;
+    using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
 
     internal sealed class SurgeonNumberAssignedOperatingRooms : ISurgeonNumberAssignedOperatingRooms
     {
@@ -26,9 +27,10 @@
 
         public RedBlackTree<Organization, INullableValue<int>> GetValueForOutputContext(
             IOrganizationComparerFactory organizationComparerFactory,
-            INullableValueFactory nullableValueFactory)
+            INullableValueFactory nullableValueFactory,
+            IRedBlackTreeFactory redBlackTreeFactory)
         {
-            RedBlackTree<Organization, INullableValue<int>> redBlackTree = new(
+            RedBlackTree<Organization, INullableValue<int>> redBlackTree = redBlackTreeFactory.Create<Organization, INullableValue<int>>(
                 organizationComparerFactory.Create());
 
             foreach (ISurgeonNumberAssignedOperatingRoomsResultElement surgeonNumberAssignedOperatingRoomsResultElement in this.Value.Values)

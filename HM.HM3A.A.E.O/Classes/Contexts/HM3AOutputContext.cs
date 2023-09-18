@@ -118,7 +118,8 @@
                 y)
                 .GetValueForOutputContext(
                 comparersAbstractFactory.CreateOrganizationComparerFactory(),
-                dependenciesAbstractFactory.CreateNullableValueFactory());
+                dependenciesAbstractFactory.CreateNullableValueFactory(),
+                dependenciesAbstractFactory.CreateRedBlackTreeFactory());
 
             // SurgicalSpecialtyNumberAssignedOperatingRooms
             this.SurgicalSpecialtyNumberAssignedOperatingRooms = calculationsAbstractFactory.CreateSurgicalSpecialtyNumberAssignedOperatingRoomsCalculationFactory().Create().Calculate(
