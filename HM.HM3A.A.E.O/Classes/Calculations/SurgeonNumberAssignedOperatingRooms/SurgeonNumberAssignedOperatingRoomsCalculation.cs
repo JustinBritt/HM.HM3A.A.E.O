@@ -10,6 +10,7 @@
     using HM.HM3A.A.E.O.Interfaces.ResultElements.SurgeonNumberAssignedOperatingRooms;
     using HM.HM3A.A.E.O.Interfaces.Results.SurgeonOperatingRoomAssignments;
     using HM.HM3A.A.E.O.Interfaces.Results.SurgeonNumberAssignedOperatingRooms;
+    using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
     using HM.HM3A.A.E.O.InterfacesFactories.ResultElements.SurgeonNumberAssignedOperatingRooms;
     using HM.HM3A.A.E.O.InterfacesFactories.Results.SurgeonNumberAssignedOperatingRooms;
     
@@ -22,13 +23,14 @@
         }
 
         public ISurgeonNumberAssignedOperatingRooms Calculate(
+            IRedBlackTreeFactory redBlackTreeFactory,
             ISurgeonNumberAssignedOperatingRoomsResultElementFactory surgeonNumberAssignedOperatingRoomsResultElementFactory,
             ISurgeonNumberAssignedOperatingRoomsFactory surgeonNumberAssignedOperatingRoomsFactory,
             ISurgeonNumberAssignedOperatingRoomsResultElementCalculation surgeonNumberAssignedOperatingRoomsResultElementCalculation,
             Is s,
             Iy y)
         {
-            RedBlackTree<IsIndexElement, ISurgeonNumberAssignedOperatingRoomsResultElement> redBlackTree = new RedBlackTree<IsIndexElement, ISurgeonNumberAssignedOperatingRoomsResultElement>();
+            RedBlackTree<IsIndexElement, ISurgeonNumberAssignedOperatingRoomsResultElement> redBlackTree = redBlackTreeFactory.Create<IsIndexElement, ISurgeonNumberAssignedOperatingRoomsResultElement>();
 
             foreach (IsIndexElement sIndexElement in s.Value.Values)
             {
