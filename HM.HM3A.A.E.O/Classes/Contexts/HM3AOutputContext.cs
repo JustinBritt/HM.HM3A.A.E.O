@@ -117,6 +117,7 @@
                 HM3AModel.s,
                 y)
                 .GetValueForOutputContext(
+                comparersAbstractFactory.CreateOrganizationComparerFactory(),
                 dependenciesAbstractFactory.CreateNullableValueFactory());
 
             // SurgicalSpecialtyNumberAssignedOperatingRooms
