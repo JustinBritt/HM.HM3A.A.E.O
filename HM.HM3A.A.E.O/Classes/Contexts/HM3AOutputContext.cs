@@ -130,7 +130,8 @@
                 y)
                 .GetValueForOutputContext(
                 comparersAbstractFactory.CreateOrganizationComparerFactory(),
-                dependenciesAbstractFactory.CreateNullableValueFactory());
+                dependenciesAbstractFactory.CreateNullableValueFactory(),
+                dependenciesAbstractFactory.CreateRedBlackTreeFactory());
         }
 
         public INullableValue<decimal> BestBound { get; }
