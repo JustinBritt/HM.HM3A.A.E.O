@@ -128,6 +128,7 @@
                 HM3AModel.Δ,
                 y)
                 .GetValueForOutputContext(
+                comparersAbstractFactory.CreateOrganizationComparerFactory(),
                 dependenciesAbstractFactory.CreateNullableValueFactory());
         }
 

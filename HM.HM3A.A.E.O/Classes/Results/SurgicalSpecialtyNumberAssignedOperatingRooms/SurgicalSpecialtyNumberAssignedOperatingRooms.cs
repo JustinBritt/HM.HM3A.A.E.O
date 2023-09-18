@@ -10,6 +10,7 @@
 
     using HM.HM3A.A.E.O.Interfaces.ResultElements.SurgicalSpecialtyNumberAssignedOperatingRooms;
     using HM.HM3A.A.E.O.Interfaces.Results.SurgicalSpecialtyNumberAssignedOperatingRooms;
+    using HM.HM3A.A.E.O.InterfacesFactories.Comparers;
     using HM.HM3A.A.E.O.InterfacesFactories.Dependencies.Hl7.Fhir.R4.Model;
 
     internal sealed class SurgicalSpecialtyNumberAssignedOperatingRooms : ISurgicalSpecialtyNumberAssignedOperatingRooms
@@ -25,10 +26,11 @@
         public ImmutableList<ISurgicalSpecialtyNumberAssignedOperatingRoomsResultElement> Value { get; }
 
         public RedBlackTree<Organization, INullableValue<int>> GetValueForOutputContext(
+            IOrganizationComparerFactory organizationComparerFactory,
             INullableValueFactory nullableValueFactory)
         {
             RedBlackTree<Organization, INullableValue<int>> redBlackTree = new(
-                new HM.HM3A.A.E.O.Classes.Comparers.OrganizationComparer());
+                organizationComparerFactory.Create());
 
             foreach (ISurgicalSpecialtyNumberAssignedOperatingRoomsResultElement surgicalSpecialtyNumberAssignedOperatingRoomsResultElement in this.Value)
             {
